@@ -1,0 +1,10 @@
+@import url(../vendor/normalize.css);
+@import url(../blocks/menu/menu.css);
+@import url(../blocks/search/search.css);
+@import url(../blocks/result/result.css);
+@import url(../blocks/author/author.css);
+@import url(../blocks/footer/footer.css);
+
+body {
+    background-color: #ffffff;
+}

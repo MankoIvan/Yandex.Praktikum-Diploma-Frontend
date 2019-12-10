@@ -1,0 +1,7 @@
+@import url(./__background/search__background.css);
+
+.search {
+    height: 576px;
+    background-color: darkred;
+    overflow: hidden;
+}
