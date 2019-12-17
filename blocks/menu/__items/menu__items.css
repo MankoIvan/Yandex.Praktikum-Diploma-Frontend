@@ -1,0 +1,10 @@
+.menu__items {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 104px;
+    height: 100%;
+}

@@ -1,0 +1,17 @@
+@import url(./__image/card__image.css);
+@import url(./__date/card__date.css);
+@import url(./__title/card__title.css);
+@import url(./__description/card__description.css);
+@import url(./__source/card__source.css);
+@import url(./__bookmark/card__bookmark.css);
+@import url(./__bookmark-image/card__bookmark-image.css);
+@import url(./__bookmark-tip.css/card__bookmark-tip.css);
+@import url(./__bookmark-tip-text/card__bookmark-tip-text.css);
+
+.card {
+    height: 576px;
+    width: 400px;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    position: relative;
+}

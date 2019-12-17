@@ -1,0 +1,29 @@
+.search__button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 168px;
+    border: none;
+    border-radius: 32px;
+    box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+    background-color: #2F71E5;
+    color: #ffffff;
+    display: block;
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    transition: background-color 0.2s linear;
+
+}
+
+.search__button:hover {
+    background-color: #347EFF;
+}
+.search__button:focus {
+    background-color: #2A65CC;
+}

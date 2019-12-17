@@ -1,0 +1,10 @@
+@import url(./__bookmark-image_marked/card__bookmark-image_marked.css);
+
+.card__bookmark-image {
+    width: 14px;
+    height: 19px;
+    background-image: url(../../../images/bookamrk-image.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: background-image 0.2s linear;
+}

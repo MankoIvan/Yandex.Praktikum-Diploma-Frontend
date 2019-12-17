@@ -1,0 +1,17 @@
+.result__loading-image {
+    display: block;
+    margin: auto;
+    width: 74px;
+    height: 74px;
+    background-size: cover;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+}

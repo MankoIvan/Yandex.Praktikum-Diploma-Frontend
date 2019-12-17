@@ -1,0 +1,26 @@
+.menu__button {
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #B6BCBF;
+    color: #B6BCBF;
+    width: 176px;
+    height: 48px;
+    display: block;
+    cursor: pointer;
+
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    border-radius: 24px;
+    margin-left: 32px;
+    margin-top: 5px;
+
+    transition: color 0.2s linear, border 0.2s linear;
+}
+.menu__button:hover {
+    border: 1px solid white;
+    color: white;
+}
