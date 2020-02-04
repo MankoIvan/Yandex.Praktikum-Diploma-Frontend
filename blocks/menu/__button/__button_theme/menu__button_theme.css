@@ -1,0 +1,8 @@
+.menu__button.menu__button_theme {
+    border: 1px solid #1A1B22;
+    color: #1A1B22;
+}
+
+.menu__button.menu__button_theme:hover {
+    border: 3px solid #1A1B22;
+}

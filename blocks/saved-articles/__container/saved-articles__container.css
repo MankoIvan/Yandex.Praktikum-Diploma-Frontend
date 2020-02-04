@@ -1,0 +1,9 @@
+.saved-articles__container {
+    width: 1232px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    grid-auto-flow: row;
+}

@@ -1,0 +1,11 @@
+@import url(./__title/technologies__title.css);
+@import url(./__container/technologies__container.css);
+@import url(./__item/technologies__item.css);
+@import url(./__name/technologies__name.css);
+@import url(./__image/technologies__image.css);
+
+.technologies {
+    height: 334px;
+    background-color: #F5F6F7;
+    position: relative;
+}

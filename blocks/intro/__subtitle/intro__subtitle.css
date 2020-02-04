@@ -1,0 +1,13 @@
+.intro__subtitle {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: Roboto;
+    color: rgba(26, 27, 34, 0.5);
+    font-size: 18px;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    padding-top: 120px;
+    margin-left: 104px;
+}

@@ -1,8 +1,10 @@
+@import url(./__button_theme/menu__button_theme.css);
+
 .menu__button {
     outline: none;
     background-color: transparent;
-    border: 1px solid #B6BCBF;
-    color: #B6BCBF;
+    border: 1px solid #ffffff;
+    color: #ffffff;
     width: 176px;
     height: 48px;
     display: block;
@@ -21,6 +23,5 @@
     transition: color 0.2s linear, border 0.2s linear;
 }
 .menu__button:hover {
-    border: 1px solid white;
-    color: white;
+    border: 2px solid #ffffff;
 }

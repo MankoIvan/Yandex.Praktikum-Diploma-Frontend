@@ -1,0 +1,13 @@
+.description__title {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: RobotoSlab;
+    color: #1A1B22;
+    font-size: 40px;
+    line-height: 46px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    padding-top: 160px;
+    margin-left: 104px;
+}

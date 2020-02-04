@@ -1,0 +1,8 @@
+.technologies__container {
+    width: 600px;
+    position: absolute;
+    top: 93px;
+    right: 216px;
+    display: flex;
+    justify-content: space-between;
+}

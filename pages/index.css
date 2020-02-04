@@ -7,6 +7,10 @@
 @import url(../blocks/author/author.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/intro/intro.css);
+@import url(../blocks/saved-articles/saved-articles.css);
+@import url(../blocks/description/description.css);
+@import url(../blocks/technologies/technologies.css);
 
 body {
     background-color: #ffffff;

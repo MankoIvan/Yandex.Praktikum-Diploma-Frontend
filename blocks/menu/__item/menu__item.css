@@ -1,3 +1,5 @@
+@import url(./__item_active/menu__item_active.css);
+
 .menu__item {
     height: 100%;
     display: flex;

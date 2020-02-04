@@ -1,0 +1,5 @@
+.technologies__item {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+}

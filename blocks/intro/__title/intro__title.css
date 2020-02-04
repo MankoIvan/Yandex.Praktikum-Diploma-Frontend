@@ -1,0 +1,14 @@
+.intro__title {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    width: 530px;
+    font-family: RobotoSlab;
+    color: #1A1B22;
+    font-size: 40px;
+    line-height: 46px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    margin-top: 28px;
+    margin-left: 104px;
+}
