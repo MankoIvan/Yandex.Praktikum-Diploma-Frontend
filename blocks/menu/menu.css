@@ -1,8 +1,10 @@
 @import url(./__logo/menu__logo.css);
 @import url(./__items/menu__items.css);
 @import url(./__item/menu__item.css);
-@import url(./__button/menu__button.css);
 @import url(./__item-text/menu__item-text.css);
+@import url(./__button/menu__button.css);
+@import url(./__button-text/menu__button-text.css);
+@import url(./__button-image/menu__button-image.css);
 
 @import url(./_theme/menu_theme.css);
 

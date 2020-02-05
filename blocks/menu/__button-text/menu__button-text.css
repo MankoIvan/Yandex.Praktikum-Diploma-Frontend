@@ -1,0 +1,13 @@
+@import url(./__button-text_theme/menu__button-text_theme.css);
+
+.menu__button-text {    
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: #ffffff;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}

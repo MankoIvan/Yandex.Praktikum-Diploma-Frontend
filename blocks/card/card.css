@@ -5,8 +5,12 @@
 @import url(./__source/card__source.css);
 @import url(./__bookmark/card__bookmark.css);
 @import url(./__bookmark-image/card__bookmark-image.css);
-@import url(./__bookmark-tip.css/card__bookmark-tip.css);
+@import url(./__bookmark-tip/card__bookmark-tip.css);
 @import url(./__bookmark-tip-text/card__bookmark-tip-text.css);
+@import url(./__delete/card__delete.css);
+@import url(./__delete-image/card__delete-image.css);
+@import url(./__delete-tip/card__delete-tip.css);
+@import url(./__delete-tip-text/card__delete-tip-text.css);
 @import url(./__keyword/card__keyword.css);
 @import url(./__keyword-text/card__keyword-text.css);
 

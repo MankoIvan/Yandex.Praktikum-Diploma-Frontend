@@ -1,8 +1,8 @@
-.card__bookmark-tip {
+.card__delete-tip {
     position: absolute;
     top: 24px;
     right: 69px;
-    width: 182px;
+    padding: 0 15px;
     height: 40px;
     border: none;
     border-radius: 8px;

@@ -1,0 +1,9 @@
+@import url(./__button-image_on/menu__button-image_on.css);
+
+.menu__button-image {
+    display: none;
+    height: 24px;
+    width: 24px;
+    background-size: cover;
+    margin-left: 3px;
+}

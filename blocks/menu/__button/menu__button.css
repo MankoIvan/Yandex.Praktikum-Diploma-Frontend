@@ -1,21 +1,16 @@
 @import url(./__button_theme/menu__button_theme.css);
 
 .menu__button {
+    display: flex;
+    align-items: center;
+    
     outline: none;
     background-color: transparent;
     border: 1px solid #ffffff;
-    color: #ffffff;
-    width: 176px;
     height: 48px;
-    display: block;
     cursor: pointer;
+    padding: 0 18px;
 
-    font-family: Roboto;
-    font-size: 18px;
-    line-height: 24px;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: none;
     border-radius: 24px;
     margin-left: 32px;
     margin-top: 5px;
