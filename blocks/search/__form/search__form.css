@@ -9,3 +9,14 @@
     border: none;
     border-radius: 32px;
 }
+@media screen and (max-width: 1440px) {
+    .search__form {
+        margin-top: calc((1 / 42) * 100vw + 30px);
+        width: calc((5 / 21) * 100vw + 265px);
+    }
+}
+@media screen and (max-width: 1280px) {
+    .search__form {
+        height: 56px;
+    }
+}

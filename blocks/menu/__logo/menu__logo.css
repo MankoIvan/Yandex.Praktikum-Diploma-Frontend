@@ -13,3 +13,9 @@
     margin: auto 0 auto 104px;
     padding-top: 2px;
 }
+
+@media screen and (max-width: 1440px) {
+    .menu__logo {
+        margin-left: calc((2 / 21) * 100vw - 33px);
+    }
+}

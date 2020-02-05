@@ -20,3 +20,9 @@
 .menu__button:hover {
     border: 2px solid #ffffff;
 }
+
+@media screen and (max-width: 1280px) {
+    .menu__button {
+        height: 40px;
+    }
+}

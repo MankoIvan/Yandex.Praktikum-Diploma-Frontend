@@ -8,3 +8,9 @@
     margin-right: 104px;
     height: 100%;
 }
+
+@media screen and (max-width: 1440px) {
+    .menu__items {
+        margin-right: calc((2 / 21) * 100vw - 33px);
+    }
+}

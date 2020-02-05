@@ -27,3 +27,8 @@
 .search__button:focus {
     background-color: #2A65CC;
 }
+@media screen and (max-width: 1280px) {
+    .search__button {
+        width: 160px;
+    }
+}
