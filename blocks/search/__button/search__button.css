@@ -32,3 +32,9 @@
         width: 160px;
     }
 }
+@media screen and (max-width: 700px) {
+    .search__button {
+        width: calc((41 / 112) * 100vw + 171px);
+        top: 72px;
+    }
+}

@@ -5,6 +5,7 @@
 @import url(./__button/menu__button.css);
 @import url(./__button-text/menu__button-text.css);
 @import url(./__button-image/menu__button-image.css);
+@import url(./__open/menu__open.css);
 
 @import url(./_theme/menu_theme.css);
 

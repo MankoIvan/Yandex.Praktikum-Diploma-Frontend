@@ -18,3 +18,8 @@
     background-color: #F5F6F7;
     display: none;
 }
+@media screen and (max-width: 1440px) {
+    .result {
+        padding: calc((5 / 84) * 100vw - 6px);
+    }
+}

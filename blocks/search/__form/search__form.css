@@ -20,3 +20,11 @@
         height: 56px;
     }
 }
+@media screen and (max-width: 700px) {
+    .search__form {
+        position: absolute;
+        bottom: 104px;
+        left: calc((21 / 64) * 100vw - 89px);
+        width: calc((41 / 112) * 100vw + 171px)
+    }
+}
