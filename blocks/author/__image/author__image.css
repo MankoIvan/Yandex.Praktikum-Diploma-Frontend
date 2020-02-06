@@ -4,3 +4,16 @@
     border-radius: 50%;
     align-self: flex-start;
 }
+@media screen and (max-width: 1440px) {
+    .author__image {
+        width: calc((29 / 84) * 100vw - 33px);
+        height: calc((29 / 84) * 100vw - 33px);
+    }
+}
+@media screen and (max-width: 700px) {
+    .author__image {
+        margin: auto;
+        width: 272px;
+        height: 272px;
+    }
+}

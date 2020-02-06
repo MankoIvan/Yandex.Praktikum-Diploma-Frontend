@@ -16,8 +16,27 @@
 
 .card {
     height: 576px;
-    width: 400px;
+    width: 100%;
     border-radius: 15px;
     background-color: #FFFFFF;
     position: relative;
+}
+@media screen and (max-width: 1280px) {
+    .card {
+        height: 520px;
+    }
+}@media screen and (max-width: 1024px) {
+    .card {
+        height: 480px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .card {
+        height: 430px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .card {
+        height: 440px;
+    }
 }

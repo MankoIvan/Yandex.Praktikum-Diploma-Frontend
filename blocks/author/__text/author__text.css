@@ -6,3 +6,14 @@
     margin-top: 51px;
     align-self: flex-start;
 }
+@media screen and (max-width: 1280px) {
+    .author__text {
+        margin-top: calc((17 / 224) * 100vw - 58px);
+        margin-left: calc((1 / 28) * 100vw - 5px);
+    }
+}@media screen and (max-width: 700px) {
+    .author__text {
+        margin-top: 24px;
+        width: auto;
+    }
+}

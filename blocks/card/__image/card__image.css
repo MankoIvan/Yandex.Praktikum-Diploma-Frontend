@@ -5,3 +5,19 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
+
+@media screen and (max-width: 1280px) {
+    .card__image {
+        height: 200px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .card__image {
+        height: 150px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .card__image {
+        height: 196px;
+    }
+}

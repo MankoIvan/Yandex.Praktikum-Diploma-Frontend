@@ -20,6 +20,6 @@
 }
 @media screen and (max-width: 1440px) {
     .result {
-        padding: calc((5 / 84) * 100vw - 6px);
+        padding: calc((5 / 84) * 100vw - 6px) 0;
     }
 }

@@ -9,3 +9,10 @@
     font-weight: normal;
     text-decoration: none;
 }
+
+@media screen and (max-width: 1280px) {
+    .author__title {
+        font-size: 30px;
+        line-height: 40px;
+    }
+}

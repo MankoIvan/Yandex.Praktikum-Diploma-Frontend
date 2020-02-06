@@ -4,8 +4,28 @@
 @import url(./__paragraph/author__paragraph.css);
 
 .author {
-    width: calc(100% - 208px);
-    margin: auto;
+    margin-left: 104px;
     padding: 80px 0;
     display: flex;
+}
+
+@media screen and (max-width: 1440px) {
+    .author {
+        padding: calc((19 / 672) * 100vw + 39px) 0;
+        margin-left: calc((2 / 21) * 100vw - 33px);
+    }
+}
+@media screen and (max-width: 768px) {
+    .author {
+        padding: calc((29 / 448) * 100vw + 11px) 0;
+        margin-left: calc((1 / 28) * 100vw + 13px);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .author {
+        margin: auto;
+        display:flex;
+        flex-direction: column;
+    }
 }

@@ -10,3 +10,22 @@
     font-weight: normal;
     text-decoration: none;
 }
+@media screen and (max-width: 1440px) {
+    .result__exist-title {
+        margin-left: calc((2 / 21) * 100vw - 33px)
+    }
+}
+@media screen and (max-width: 1280px) {
+    .result__exist-title {
+        font-size: 36px;
+        line-height: 40px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .result__exist-title {
+        font-size: 30px;
+        line-height: 34px;
+        width: 250px;
+        margin-left: calc((3 / 56) * 100vw - 1px)
+    }
+}

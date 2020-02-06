@@ -14,3 +14,11 @@
     text-transform: uppercase;
     text-decoration: none;
 }
+@media screen and (max-width: 1024px) {
+    .card__source {
+        font-size: 16px;
+        line-height: 20px;
+        left: 16px;
+        bottom: 16px;
+    }
+}

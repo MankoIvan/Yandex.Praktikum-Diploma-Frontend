@@ -11,4 +11,16 @@
     font-style: normal;
     font-weight: normal;
     text-decoration: none;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+@media screen and (max-width: 1024px) {
+    .card__description {
+        width: calc(100% - 32px);
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 22px;
+    }
 }
