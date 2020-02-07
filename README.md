@@ -1,8 +1,10 @@
 # v0.0.1
 
 Сервис по поиску статей. Дипломный проект по курсу веб-разработка в Яндекс.Практикум
-
-## https://mankoivan.github.io/Yandex.Praktikum-Diploma-Frontend/
+#### стартовая страница
+## https://mankoivan.github.io/Yandex.Praktikum-Diploma-Frontend/index.html
+#### стартовая страница
+## https://mankoivan.github.io/Yandex.Praktikum-Diploma-Frontend/saved.html
 
 ## Использованные технологии и пакеты:
 - [Node.js](https://nodejs.org/en/download/)
