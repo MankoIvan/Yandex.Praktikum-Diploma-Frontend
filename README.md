@@ -23,7 +23,7 @@
 - [CoreJS](https://github.com/zloirock/core-js#readme)
 
 ## Инструкция по развертыванию:
-- клонируйте репозиторий `https://github.com/Mankoivan/sprint11.git`
+- клонируйте репозиторий `https://github.com/Mankoivan/Yandex.Praktikum-Diploma-Frontend.git`
 - уcтановите зависимости npm `npm install`
 
 - сборка проекта `npm run build`
