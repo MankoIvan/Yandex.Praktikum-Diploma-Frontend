@@ -1,0 +1,10 @@
+@import url("./__title/intro__title.css");
+@import url("./__subtitle/intro__subtitle.css");
+@import url("./__keywords/intro__keywords.css");
+@import url("./__keyword/intro__keyword.css");
+
+.intro {
+    height: 374px;
+    background-color: #FFFFFF;
+    position: relative;
+}

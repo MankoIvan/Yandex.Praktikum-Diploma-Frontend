@@ -1,8 +1,0 @@
-@import url(./__nothing_opened/result__nothing_opened.css);
-
-.result__nothing {
-    display: block;
-    flex-direction: column;
-    align-items: center;
-    display: none;
-}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="NewsExplorer - сервис, в котором можно найти новости по запросу и сохранить в личном кабинете">
+    <meta name="author" content="Manko Ivan">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+    <link rel="icon" href="./images/favicon.png">
+    <title>NewsExplorer Manko</title>
+</head>
+<body>
+    <div class="page">
+        <section class="search">
+            <div class="menu">
+                <a href="#" class="menu__logo">NewsExplorer</a>
+                <div class="menu__items">
+                    <div class="menu__item menu__item_active">
+                        <a  href="#" class="menu__item-text menu__item-text_active">Главная</a>
+                    </div>
+                    <!-- <div class="menu__item">
+                        <a  href="#" class="menu__item-text">О проекте</a>
+                    </div> -->
+                    <button class="menu__button">
+                        <span class="menu__button-text">Авторизоваться</span>
+                        <!-- <img src="./images/logout.png" alt="" class="menu__button-image menu__button-image_on"> -->
+                    </button>
+                    <button class="menu__open">
+                        <img src="./images/menu-open.png" alt="" class="menu__button-image menu__button-image_on">
+                    </button>
+                </div>
+            </div>
+            <h1 class="search__title">Что в мире творится?</h1>
+            <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
+            <form name="search" class="search__form">
+                <input type="text" name="search-word" placeholder="Введите тему новости" class="search__input">
+                <button class="search__button">Искать</button>
+            </form>            
+        </section>
+        <!-- result__opened вставить класс чтоб отобразить секцию-->
+        <section class="result result__opened">
+            <!-- result__nothing_opened вставить класс чтоб отобразить -->
+            <div class="result__nothing result__nothing_opened">
+                <img src="./images/not-found.png" alt="" class="result__nothing-image">
+                <h2 class="result__nothing-title">Ничего не найдено</h2>
+                <p class="result__nothing-subtitle">К сожалению по вашему запросу ничего не найдено.</p>
+            </div>
+            
+            <!-- Примеры карточек -->
+            <div class="result__exist result__exist_opened">
+                <h2 class="result__exist-title">Результаты поиска</h2>
+                <div class="result__exist-container">
+                    <div class="card">
+                        <img src="./images/card-image-1.png" alt="news' image" class="card__image">
+                        <p class="card__date">2 августа, 2019</p>
+                        <h3 class="card__title">Национальное достояние – парки</h3>
+                        <h4 class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</h4>
+                        <p class="card__source">Лента.ру</p>
+                        <button class="card__bookmark">
+                            <span class="card__bookmark-image_marked"></span>
+                        </button>
+                    </div>
+                    <div class="card">
+                        <img src="./images/card-image-2.png" alt="news' image" class="card__image">
+                        <p class="card__date">2 августа, 2019</p>
+                        <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
+                        <h4 class="card__description">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</h4>
+                        <p class="card__source">Медуза</p>
+                        <button class="card__bookmark">
+                            <span class="card__bookmark-image"></span>
+                        </button>
+                        <div class="card__bookmark-tip">
+                            <p class="card__bookmark-tip-text">Войдите, чтобы сохранять статьи</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./images/card-image-3.png" alt="news' image" class="card__image">
+                        <p class="card__date">2 августа, 2019</p>
+                        <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
+                        <h4 class="card__description">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</h4>
+                        <p class="card__source">Риа</p>
+                        <button class="card__bookmark">
+                            <span class="card__bookmark-image"></span>
+                        </button>
+                        <div class="card__bookmark-tip">
+                            <p class="card__bookmark-tip-text">Войдите, чтобы сохранять статьи</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="result__exist-button">Показать еще</button>
+            </div>
+            <!-- result__loading_opened вставить класс чтоб отобразить -->
+            <div class="result__loading result__loading_opened">
+                <img src="./images/loader.png" alt="Loader" class="result__loading-image">
+                <h2 class="result__loading-title">Идет поиск новостей...</h2>
+            </div>
+        </section>
+        <section class="author">
+            <img src="./images/author-image.jpg" alt="Author photo" class="author__image">
+            <div class="author__text">
+                <h2 class="author__title">Об авторе</h2>
+                <p class="author__paragraph">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+                <p class="author__paragraph">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+            </div>
+        </section>
+        <section class="footer">
+            <p class="footer__watermark">&#169; 2019  Supersite</p>
+            <div class="footer__links">
+                <a href="" class="footer__link">Главная</a>
+                <a href="" class="footer__link">О проекте</a>
+                <a href="" class="footer__link">Яндекс.Практикум</a>
+            </div>
+            <div class="footer__social">
+                <a href="#" class="footer__social-item">
+                    <img src="./images/github.png" alt="github" class="footer__social-image">
+                </a>
+                <a href="#" class="footer__social-item">
+                    <img src="./images/fb.png" alt="github" class="footer__social-image">
+                </a>
+            </div>
+        </section>
+        <!-- popup__opened -->
+        <div class="popup">
+            <div class="popup__container">
+                <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+                <a href="#" class="popup__link">Выполнить вход</a>
+            </div>
+        </div>
+        <div class="popup">
+            <div class="popup__container">
+                <h3 class="popup__title">Вход</h3>
+                <form class="popup__form" name="signin">
+                    <span class="popup__input-indicator">Email</span>
+                    <input class="popup__input" type="email" pattern="[a-zA-Z\d]+@[a-zA-Z]+\.[a-zA-Z]+" name ="email" placeholder="Введите email" required>
+                    <span class="popup__error-message">Текст ошибки</span>
+                    <span class="popup__input-indicator">Пароль</span>
+                    <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]" placeholder="Введите пароль" required>
+                    <span class="popup__error-message">Текст ошибки</span>
+                </form>
+                <button class="popup__button">Войти</button>
+                <div class="popup__switch">
+                    <p class="popup__text">или&#8194;</p>
+                    <a href="#" class="popup__link">Зарегистрироваться</a>
+                </div>
+            </div>
+        </div>
+        <div class="popup">
+            <div class="popup__container">
+                <h3 class="popup__title">Регистрация</h3>
+                <form class="popup__form" name="signup">
+                    <span class="popup__input-indicator">Email</span>
+                    <input class="popup__input" type="email" pattern="[a-zA-Z\d]+@[a-zA-Z]+\.[a-zA-Z]+" name ="email" placeholder="Введите email" required>
+                    <span class="popup__error-message">Текст ошибки</span>
+                    <span class="popup__input-indicator">Пароль</span>
+                    <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]" placeholder="Введите пароль" required>
+                    <span class="popup__error-message">Текст ошибки</span>
+                    <span class="popup__input-indicator">Имя</span>
+                    <input class="popup__input" type="text" name ="name"  pattern="[А-ЯЁ][а-яё]{1,}-?[А-ЯЁ]?[а-яё]{0,}" minlength="2" maxlength="30" placeholder="Введите пароль" required>
+                    <span class="popup__error-message">Текст ошибки</span>
+                    <span class="popup__error-message popup__error-message_user">Такой пользователь уже есть</span>
+                </form>
+                <button class="popup__button">Зарегистрироваться</button>
+                <div class="popup__switch">
+                    <p class="popup__text">или&#8194;</p>
+                    <a href="#" class="popup__link">Войти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+</html>

@@ -1,9 +1,0 @@
-@import url(./__title/description__title.css);
-@import url(./__paragraph-container/description__paragraph-container.css);
-@import url(./__paragraph/description__paragraph.css);
-
-.description {
-    width: 100%;
-    background-color: #FFFFFF;
-    position: relative;
-}

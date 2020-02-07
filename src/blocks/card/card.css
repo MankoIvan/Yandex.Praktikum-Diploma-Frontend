@@ -1,0 +1,43 @@
+@import url("./__image/card__image.css");
+@import url("./__date/card__date.css");
+@import url("./__title/card__title.css");
+@import url("./__description/card__description.css");
+@import url("./__source/card__source.css");
+@import url("./__bookmark/card__bookmark.css");
+@import url("./__bookmark-image/card__bookmark-image.css");
+@import url("./__bookmark-tip/card__bookmark-tip.css");
+@import url("./__bookmark-tip-text/card__bookmark-tip-text.css");
+@import url("./__delete/card__delete.css");
+@import url("./__delete-image/card__delete-image.css");
+@import url("./__delete-tip/card__delete-tip.css");
+@import url("./__delete-tip-text/card__delete-tip-text.css");
+@import url("./__keyword/card__keyword.css");
+@import url("./__keyword-text/card__keyword-text.css");
+
+.card {
+    height: 576px;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    position: relative;
+}
+@media screen and (max-width: 1280px) {
+    .card {
+        height: 520px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .card {
+        height: 480px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .card {
+        height: 430px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .card {
+        height: 440px;
+    }
+}
