@@ -23,7 +23,7 @@
                         <a  href="#" class="menu__item-text">О проекте</a>
                     </div> -->
                     <button class="menu__button">
-                        <p class="menu__button-text">Авторизоваться</p>
+                        <span class="menu__button-text">Авторизоваться</span>
                         <!-- <img src="./images/logout.png" alt="" class="menu__button-image menu__button-image_on"> -->
                     </button>
                     <button class="menu__open">
@@ -58,7 +58,7 @@
                         <h4 class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</h4>
                         <p class="card__source">Лента.ру</p>
                         <button class="card__bookmark">
-                            <div class="card__bookmark-image_marked"></div>
+                            <span class="card__bookmark-image_marked"></span>
                         </button>
                     </div>
                     <div class="card">
@@ -68,7 +68,7 @@
                         <h4 class="card__description">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</h4>
                         <p class="card__source">Медуза</p>
                         <button class="card__bookmark">
-                            <div class="card__bookmark-image"></div>
+                            <span class="card__bookmark-image"></span>
                         </button>
                         <div class="card__bookmark-tip">
                             <p class="card__bookmark-tip-text">Войдите, чтобы сохранять статьи</p>
@@ -81,7 +81,7 @@
                         <h4 class="card__description">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</h4>
                         <p class="card__source">Риа</p>
                         <button class="card__bookmark">
-                            <div class="card__bookmark-image"></div>
+                            <span class="card__bookmark-image"></span>
                         </button>
                         <div class="card__bookmark-tip">
                             <p class="card__bookmark-tip-text">Войдите, чтобы сохранять статьи</p>
@@ -132,10 +132,10 @@
                 <h3 class="popup__title">Вход</h3>
                 <form class="popup__form" name="signin">
                     <span class="popup__input-indicator">Email</span>
-                    <input type="text" class="popup__input" name ="email" placeholder="Введите email">
+                    <input class="popup__input" type="email" pattern="[a-zA-Z\d]+@[a-zA-Z]+\.[a-zA-Z]+" name ="email" placeholder="Введите email" required>
                     <span class="popup__error-message">Текст ошибки</span>
                     <span class="popup__input-indicator">Пароль</span>
-                    <input type="text" class="popup__input" name ="password" placeholder="Введите пароль">
+                    <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]" placeholder="Введите пароль" required>
                     <span class="popup__error-message">Текст ошибки</span>
                 </form>
                 <button class="popup__button">Войти</button>
@@ -150,13 +150,13 @@
                 <h3 class="popup__title">Регистрация</h3>
                 <form class="popup__form" name="signup">
                     <span class="popup__input-indicator">Email</span>
-                    <input type="text" class="popup__input" name ="email" placeholder="Введите email">
+                    <input class="popup__input" type="email" pattern="[a-zA-Z\d]+@[a-zA-Z]+\.[a-zA-Z]+" name ="email" placeholder="Введите email" required>
                     <span class="popup__error-message">Текст ошибки</span>
                     <span class="popup__input-indicator">Пароль</span>
-                    <input type="text" class="popup__input" name ="password" placeholder="Введите пароль">
+                    <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]" placeholder="Введите пароль" required>
                     <span class="popup__error-message">Текст ошибки</span>
                     <span class="popup__input-indicator">Имя</span>
-                    <input type="text" class="popup__input" name ="name" placeholder="Введите пароль">
+                    <input class="popup__input" type="text" name ="name"  pattern="[А-ЯЁ][а-яё]{1,}-?[А-ЯЁ]?[а-яё]{0,}" minlength="2" maxlength="30" placeholder="Введите пароль" required>
                     <span class="popup__error-message">Текст ошибки</span>
                     <span class="popup__error-message popup__error-message_user">Такой пользователь уже есть</span>
                 </form>
