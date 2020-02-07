@@ -10,7 +10,11 @@ const presets = [
               safari: "11.1",
         },
         useBuiltIns: "usage", 
-        corejs: "3.4.1" 
+        corejs: "3.4.1" ,
+            "targets": { 
+                  "esmodules": true, 
+                    "ie": "11" 
+        }
       }
     ],
   ];

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="NewsExplorer - сервис, в котором можно найти новости по запросу и сохранить в личном кабинете">
     <meta name="author" content="Manko Ivan">
-    <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.saved.css %>">
     <link rel="icon" href="./images/favicon.png">
     <title>NewsExplorer Manko - Saved</title>
 </head>
@@ -17,17 +17,17 @@
                 <a href="#" class="menu__logo menu__logo_theme">NewsExplorer</a>
                 <div class="menu__items">
                     <div class="menu__item">
-                        <a href="#" class="menu__item-text menu__item-text_theme">Главная</a>
+                        <a href="index.html" class="menu__item-text menu__item-text_theme">Главная</a>
                     </div>
                     <div class="menu__item menu__item_active menu__item_active_theme">
-                        <a href="#" class="menu__item-text menu__item-text_theme menu__item-text_theme_active">Сохранённые статьи</a>
+                        <a href="saved.html" class="menu__item-text menu__item-text_theme menu__item-text_theme_active">Сохранённые статьи</a>
                     </div>
                     <button class="menu__button menu__button_theme">
                         <span class="menu__button-text menu__button-text_theme">Грета</span>
-                        <img src="./images/logout-theme.png" alt="" class="menu__button-image menu__button-image_on">
+                        <img src="<%=require('../../images/logout-theme.png').default%>" alt="" class="menu__button-image menu__button-image_on">
                     </button>
                     <button class="menu__open">
-                        <img src="./images/menu-open__theme.png" alt="" class="menu__button-image menu__button-image_on">
+                        <img src="<%=require('../../images/menu-open__theme.png').default%>" alt="" class="menu__button-image menu__button-image_on">
                     </button>
                 </div>
             </div>
@@ -38,7 +38,7 @@
         <section class="saved-articles">
             <div class="saved-articles__container">
                 <div class="card">
-                    <img src="./images/card-image-1.png" alt="news' image" class="card__image">
+                    <img src="<%=require('../../images/card-image-1.png').default%>" alt="news' image" class="card__image">
                     <p class="card__date">2 августа, 2019</p>
                     <h3 class="card__title">Национальное достояние – парки</h3>
                     <h4 class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</h4>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img src="./images/card-image-2.png" alt="news' image" class="card__image">
+                    <img src="<%=require('../../images/card-image-2.png').default%>" alt="news' image" class="card__image">
                     <p class="card__date">2 августа, 2019</p>
                     <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
                     <h4 class="card__description">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</h4>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img src="./images/card-image-3.png" alt="news' image" class="card__image">
+                    <img src="<%=require('../../images/card-image-3.png').default%>" alt="news' image" class="card__image">
                     <p class="card__date">2 августа, 2019</p>
                     <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
                     <h4 class="card__description">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</h4>
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img src="./images/card-image-1.png" alt="news' image" class="card__image">
+                    <img src="<%=require('../../images/card-image-1.png').default%>" alt="news' image" class="card__image">
                     <p class="card__date">2 августа, 2019</p>
                     <h3 class="card__title">Национальное достояние – парки</h3>
                     <h4 class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</h4>
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img src="./images/card-image-2.png" alt="news' image" class="card__image">
+                    <img src="<%=require('../../images/card-image-2.png').default%>" alt="news' image" class="card__image">
                     <p class="card__date">2 августа, 2019</p>
                     <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
                     <h4 class="card__description">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</h4>
@@ -116,13 +116,60 @@
             </div>
             <div class="footer__social">
                 <a href="#" class="footer__social-item">
-                    <img src="./images/github.png" alt="github" class="footer__social-image">
+                    <img src="<%=require('../../images/github.png').default%>" alt="github" class="footer__social-image">
                 </a>
                 <a href="#" class="footer__social-item">
-                    <img src="./images/fb.png" alt="github" class="footer__social-image">
+                    <img src="<%=require('../../images/fb.png').default%>" alt="github" class="footer__social-image">
                 </a>
             </div>
         </section>
+        <div class="popup">
+            <div class="popup__container">
+                <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+                <a href="#" class="popup__link">Выполнить вход</a>
+            </div>
+        </div>
+        <div class="popup">
+            <div class="popup__container">
+                <h3 class="popup__title">Вход</h3>
+                <form class="popup__form" name="signin">
+                    <span class="popup__input-indicator">Email</span>
+                    <input class="popup__input" type="email" pattern="[a-zA-Z\d]+@[a-zA-Z]+\.[a-zA-Z]+" name ="email" placeholder="Введите email" required>
+                    <span class="popup__error-message">Текст ошибки</span>
+                    <span class="popup__input-indicator">Пароль</span>
+                    <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]" placeholder="Введите пароль" required>
+                    <span class="popup__error-message">Текст ошибки</span>
+                </form>
+                <button class="popup__button">Войти</button>
+                <div class="popup__switch">
+                    <p class="popup__text">или&#8194;</p>
+                    <a href="#" class="popup__link">Зарегистрироваться</a>
+                </div>
+            </div>
+        </div>
+        <div class="popup">
+            <div class="popup__container">
+                <h3 class="popup__title">Регистрация</h3>
+                <form class="popup__form" name="signup">
+                    <span class="popup__input-indicator">Email</span>
+                    <input class="popup__input" type="email" pattern="[a-zA-Z\d]+@[a-zA-Z]+\.[a-zA-Z]+" name ="email" placeholder="Введите email" required>
+                    <span class="popup__error-message">Текст ошибки</span>
+                    <span class="popup__input-indicator">Пароль</span>
+                    <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]" placeholder="Введите пароль" required>
+                    <span class="popup__error-message">Текст ошибки</span>
+                    <span class="popup__input-indicator">Имя</span>
+                    <input class="popup__input" type="text" name ="name"  pattern="[А-ЯЁ][а-яё]{1,}-?[А-ЯЁ]?[а-яё]{0,}" minlength="2" maxlength="30" placeholder="Введите пароль" required>
+                    <span class="popup__error-message">Текст ошибки</span>
+                    <span class="popup__error-message popup__error-message_user">Такой пользователь уже есть</span>
+                </form>
+                <button class="popup__button">Зарегистрироваться</button>
+                <div class="popup__switch">
+                    <p class="popup__text">или&#8194;</p>
+                    <a href="#" class="popup__link">Войти</a>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="<%= htmlWebpackPlugin.files.chunks.saved.entry %>"></script>
 </body>
 </html>

@@ -8,7 +8,10 @@ const isDev = process.env.NODE_ENV === 'development';
 
 
 module.exports = { 
-    entry: { main: './src/index.js' },
+    entry: { 
+        index: './src/pages/index/index.js',
+        saved: './src/pages/saved/saved.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[chunkhash].js',
@@ -32,7 +35,7 @@ module.exports = {
                 ]
              },
              {
-                test: /\.(png|jpg|gif|ico|svg)$/,
+                test: /\.(jpg|png|gif|ico|svg)$/,
                 use: [
                      'file-loader?name=./images/[name].[ext]', 
                      {
@@ -66,8 +69,14 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject: false,
             hash: true,
-            template: './src/index.html',
+            template: './src/pages/index/index.html',
             filename: 'index.html'
+        }),
+        new HtmlWebpackPlugin({
+            inject: false,
+            hash: true,
+            template: './src/pages/saved/saved.html',
+            filename: 'saved.html'
         }),
         new WebpackMd5Hash(),
         new webpack.DefinePlugin({
