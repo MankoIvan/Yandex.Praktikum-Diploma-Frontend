@@ -18,7 +18,7 @@
 }
 @media screen and (max-width: 1280px) {
     .search__title {
-        width: 300px;
+        width: 270px;
         font-size: 48px;
         line-height: 52px;
         padding-top: calc((7 / 64) * 100vw + 20px);

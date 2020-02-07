@@ -28,3 +28,8 @@
 .popup__button:focus {
     background-color: #2A65CC;
 }
+@media screen and (max-width: 700px) {
+    .popup__button {
+        width: 288px;        
+    }
+  }

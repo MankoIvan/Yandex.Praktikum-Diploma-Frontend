@@ -11,3 +11,16 @@
     font-weight: normal;
     text-decoration: none;
 }
+@media screen and (max-width: 1440px) {
+    .footer__watermark {
+        margin-left: calc((2 / 21) * 100vw - 33px);
+    }
+}
+@media screen and (max-width: 700px) {
+    .footer__watermark {
+        margin-left: unset;
+        position: absolute;
+        bottom: 22px;
+        left: 16px;
+    }
+}

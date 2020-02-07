@@ -11,3 +11,15 @@
     align-items: center;
     justify-content: space-between;
 }
+@media screen and (max-width: 1440px) {
+    .footer {
+        height: calc((1 / 42) * 100vw + 46px);
+    }
+}
+@media screen and (max-width: 700px) {
+    .footer {
+        height: 224px;
+        position: relative;
+        align-items: unset;
+    }
+}

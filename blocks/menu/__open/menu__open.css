@@ -8,11 +8,11 @@
     height: 24px;
     width: 24px;
     background-size: cover;
-    margin-left: 3px;
 }
 
 @media screen and (max-width: 700px) {
     .menu__open {
         display: block;
+        width: 40px;
     }
 }

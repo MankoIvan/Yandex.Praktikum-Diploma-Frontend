@@ -24,3 +24,8 @@
         height: 66px;
     }
 }
+@media screen and (max-width: 700px) {
+    .menu {
+        height: 56px;
+    }
+}

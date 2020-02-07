@@ -4,3 +4,13 @@
     background-color: #F5F6F7;
     padding: 62px 0;
 }
+@media screen and (max-width: 1440px) {
+    .saved-articles {
+        padding: calc((5 / 112) * 100vw - 2px) 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .saved-articles {
+        padding: calc((1 / 56) * 100vw + 18px) 0;
+    }
+}
