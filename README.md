@@ -2,9 +2,9 @@
 
 Сервис по поиску статей. Дипломный проект по курсу веб-разработка в Яндекс.Практикум
 #### стартовая страница
- api.newsexplorer-manko.site/
+ http://newsexplorer-manko.site/
 #### стартовая страница
- api.newsexplorer-manko.site/saved.html
+ http://newsexplorer-manko.site/saved.html
 
 ## Использованные технологии и пакеты:
 - [Node.js](https://nodejs.org/en/download/)
