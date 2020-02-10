@@ -18,7 +18,7 @@
 }
 @media screen and (max-width: 700px) {
     .footer {
-        height: 224px;
+        height: 176px;
         position: relative;
         align-items: unset;
     }
