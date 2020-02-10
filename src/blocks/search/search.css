@@ -21,7 +21,7 @@
 }
 @media screen and (max-width: 700px) {
     .search {
-        height: 100vh;
+        height: 536px;
         padding-bottom: 0;
     }
 }
