@@ -1,5 +1,3 @@
-@import url("./__item-text_theme_active/menu__item-text_theme_active.css");
-
 .menu__item-text.menu__item-text_theme:hover {
     color: #1A1B22;
 }

@@ -9,7 +9,7 @@
 @import url("./__loading/result__loading.css");
 @import url("./__loading-image/result__loading-image.css");
 @import url("./__loading-title/result__loading-title.css");
-@import url("./__opened/result__opened.css");
+@import url("./_opened/result_opened.css");
 
 .result {
     display: block;

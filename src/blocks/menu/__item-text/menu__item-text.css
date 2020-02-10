@@ -1,5 +1,6 @@
 @import url("./__item-text_active/menu__item-text_active.css");
 @import url("./__item-text_theme/menu__item-text_theme.css");
+@import url("./__item-text_active-theme/menu__item-text_active-theme.css");
 
 .menu__item-text {
     display: block;

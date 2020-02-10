@@ -1,5 +1,3 @@
-@import url("./__item_active_theme/menu__item_active_theme.css");
-
-.menu__item_active {
+.menu__item.menu__item_active {
     box-shadow: inset 0 -3px #ffffff;
 }
