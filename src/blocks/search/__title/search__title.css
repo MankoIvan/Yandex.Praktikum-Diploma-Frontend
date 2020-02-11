@@ -1,0 +1,38 @@
+.search__title {
+    font-family: RobotoSlab;
+    color: #ffffff;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: auto;
+    width: 608px;
+    font-size: 60px;
+    line-height: 64px;
+    font-style: normal;
+    font-weight: normal;
+    padding-top: 160px;
+}
+@media screen and (max-width: 1440px) {
+    .search__title {
+        margin-left: calc((3 / 8) * 100vw - 124px);
+    }
+}
+@media screen and (max-width: 1280px) {
+    .search__title {
+        width: 270px;
+        font-size: 48px;
+        line-height: 52px;
+        padding-top: calc((7 / 64) * 100vw + 20px);
+    }
+}
+@media screen and (max-width: 976px) {
+    .search__title {
+        font-size: 36px;
+        line-height: 40px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .search__title {
+        padding-top: calc((9 / 224) * 100vw + 73px);
+        margin-left: calc((21 / 64) * 100vw - 89px);
+    }
+}

@@ -1,0 +1,30 @@
+.search__form {
+    position: relative;
+    width: 608px;
+    height: 64px;
+    margin: auto;
+    margin-top: 64px;
+    
+    background-color: #ffffff;
+    border: none;
+    border-radius: 32px;
+}
+@media screen and (max-width: 1440px) {
+    .search__form {
+        margin-top: calc((1 / 42) * 100vw + 30px);
+        width: calc((5 / 21) * 100vw + 265px);
+    }
+}
+@media screen and (max-width: 1280px) {
+    .search__form {
+        height: 56px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .search__form {
+        position: absolute;
+        bottom: 104px;
+        left: calc((21 / 64) * 100vw - 89px);
+        width: calc((41 / 112) * 100vw + 171px)
+    }
+}

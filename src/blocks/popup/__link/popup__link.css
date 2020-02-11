@@ -1,0 +1,13 @@
+.popup__link {
+    display: inline;
+    display: inline;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: Inter;
+    color: #2F71E5;
+    font-size: 14px;
+    line-height: 17px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}

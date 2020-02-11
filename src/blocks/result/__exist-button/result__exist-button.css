@@ -1,0 +1,20 @@
+.result__exist-button {
+    margin: auto;
+    outline: none;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 32px;
+    color: #1A1B22;
+    width: 288px;
+    height: 64px;
+    display: block;
+    cursor: pointer;
+
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 64px;
+}

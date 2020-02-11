@@ -1,0 +1,16 @@
+@import url("./__item_active/menu__item_active.css");
+@import url("./__item_active-theme/menu__item_active-theme.css");
+
+.menu__item {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-left: 34px;
+}
+@media screen and (max-width: 700px) {
+    .menu__item {
+        display: none;
+    }
+}

@@ -1,0 +1,11 @@
+.popup__input-indicator {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: Inter;
+    color: #2F71E5;
+    font-size: 12px;
+    line-height: 15px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}

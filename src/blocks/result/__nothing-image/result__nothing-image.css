@@ -1,0 +1,7 @@
+.result__nothing-image {
+    display: block;
+    height: 96px;
+    width: 96px;
+    background-size: cover;
+    margin: auto;
+}

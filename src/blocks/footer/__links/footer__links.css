@@ -1,0 +1,20 @@
+.footer__links {
+    width: 300px;
+
+    display: flex;
+    justify-content: space-around;
+}
+@media screen and (max-width: 1440px) {
+    .footer__links {
+        width: calc((5 / 42) * 100vw + 279px);
+    }
+}
+@media screen and (max-width: 700px) {
+    .footer__links {
+        margin-left: 16px;
+        width: unset;
+        height: 74px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}

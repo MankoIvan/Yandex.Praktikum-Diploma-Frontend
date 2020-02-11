@@ -1,0 +1,16 @@
+.footer__social {
+    margin-right: 104px;
+}
+@media screen and (max-width: 1440px) {
+    .footer__social {
+        margin-right: calc((2 / 21) * 100vw - 33px);
+    }
+}
+@media screen and (max-width: 700px) {
+    .footer__social {
+        margin-right: unset;
+        position: absolute;
+        top: 22px;
+        right: 16px;
+    }
+}

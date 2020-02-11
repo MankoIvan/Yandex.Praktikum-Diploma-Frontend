@@ -1,0 +1,15 @@
+.result__nothing-subtitle {
+    width: 300px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: auto;
+    margin-top: 16px;
+    font-family: Roboto;
+    color: #B6BCBF;
+    font-size: 18px;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+}

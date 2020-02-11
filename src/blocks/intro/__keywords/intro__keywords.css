@@ -1,0 +1,25 @@
+.intro__keywords {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: Roboto;
+    color: #1A1B22;
+    font-size: 18px;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    margin-top: 30px;
+    margin-left: 104px;
+}
+@media screen and (max-width: 1440px) {
+    .intro__keywords {
+        margin-left: calc((2 / 21) * 100vw - 33px);
+        margin-top: calc((1 / 48) * 100vw);
+    }
+}
+@media screen and (max-width: 768px) {
+    .intro__keywords {
+        margin-left: calc((3 / 56) * 100vw - 1px);
+        margin-top: 16px;
+    }
+}

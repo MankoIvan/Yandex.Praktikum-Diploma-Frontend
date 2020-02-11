@@ -1,0 +1,29 @@
+.search__input {
+    outline: none;
+    color: #1A1B22;
+    padding: 0;
+    position: absolute;
+    left: 24px;
+    top: 21px;
+    border: none;
+    width: 392px;
+
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 22px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+.search__input::placeholder {
+    color: #B6BCBF;
+}
+
+.search__input:focus {
+    border: none;
+}
+@media screen and (max-width: 1440px) {
+    .search__input {
+        width: calc((17 / 84) * 100vw + 100px);
+    }
+}

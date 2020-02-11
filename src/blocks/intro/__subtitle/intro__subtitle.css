@@ -1,0 +1,37 @@
+.intro__subtitle {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: Roboto;
+    color: rgba(26, 27, 34, 0.5);
+    font-size: 18px;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    padding-top: 120px;
+    margin-left: 104px;
+}
+@media screen and (max-width: 1440px) {
+    .intro__subtitle {
+        margin-left: calc((2 / 21) * 100vw - 33px);
+        padding-top: calc((5 / 112) * 100vw + 56px);
+    }
+}
+@media screen and (max-width: 1280px) {
+    .intro__subtitle {
+        font-size: 16px;
+        line-height: 40px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .intro__subtitle {
+        font-size: 14px;
+        line-height: 24px;
+        margin-left: calc((3 / 56) * 100vw - 1px)
+    }
+}
+@media screen and (max-width: 700px) {
+    .intro__subtitle {
+        padding-top: 64px;
+    }
+}

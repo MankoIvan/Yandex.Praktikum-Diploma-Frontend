@@ -1,0 +1,18 @@
+.menu__open {
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    
+    display: none;
+    height: 24px;
+    width: 24px;
+    background-size: cover;
+}
+
+@media screen and (max-width: 700px) {
+    .menu__open {
+        display: block;
+        width: 40px;
+    }
+}
