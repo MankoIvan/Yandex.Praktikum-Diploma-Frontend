@@ -14,54 +14,27 @@ const mainapi = new MainApi({
     baseUrl: serverUrl,
 })
 const popups = new Popup();
-console.log(popups)
 
 const authButton = document.querySelector("#authorize");
-
-const signInForm = document.forms.signin;
-
-const signInEmail = signInForm.elements.email;
-const signInPassword = signInForm.elements.password;
-
-const signInPasswordError = signInForm.querySelector("#wrongPasswordError");
-
-const signInButton = signInForm.querySelector("#signIn");
-
-const SignInToSignUpButton = document.querySelector("#gotoSignUp");
-const SignUpToSignInButton = document.querySelector("#gotoSignIn");
-console.log(SignUpToSignInButton)
-
-
-
-
-
-const signUpForm = document.forms.signup;
-
-
-
-const signUpEmailError = signUpForm.querySelector("#emailError")
-const signUpPasswordError = signUpForm.querySelector("#passwordError")
-const signUpNameError = signUpForm.querySelector("#nameError")
-const signUpExistError = signUpForm.querySelector("#existError")
-
-
-function validate(target) {
-    target.target.nextElementSibling.classList.add("popup__error-message_hidden");
-    console.log(target);
-    console.log(target.target.nextElementSibling)
-    if(!target.target.checkValidity()) {
-        target.target.nextElementSibling.classList.remove("popup__error-message_hidden");
-    }
-}
-
-document.addEventListener('click', function() {     
-    if (event.target.classList.contains('popup__close')) {
-        popups.close(event);
-    }
-});
 authButton.addEventListener('click', function() {
     popups.signInOpen(event);
 });
+
+const signInForm = document.forms.signin;
+const signInEmail = signInForm.elements.email;
+const signInPassword = signInForm.elements.password;
+const signInPasswordError = signInForm.querySelector("#wrongPasswordError");
+const signInButton = signInForm.querySelector("#signIn");
+const signInToSignUpButton = document.querySelector("#gotoSignUp");
+
+signInEmail.addEventListener('input', validate);  
+signInPassword.addEventListener('input', validate); 
+
+signInToSignUpButton.addEventListener('click', function() {
+    popups.signIn.classList.remove('popup_opened');
+    popups.signUpOpen();
+})
+
 signInForm.addEventListener('submit', function() {
     event.preventDefault();
     signInPasswordError.textContent = "";
@@ -80,13 +53,70 @@ signInForm.addEventListener('submit', function() {
             }
         })
 });
-signInEmail.addEventListener('input', validate);  
-signInPassword.addEventListener('input', validate);  
-SignInToSignUpButton.addEventListener('click', function() {
-    popups.signIn.classList.remove('popup_opened');
-    popups.signUpOpen();
-})
-SignUpToSignInButton.addEventListener('click', function() {
+
+
+
+
+
+
+const signUpForm = document.forms.signup;
+const signUpEmail = signUpForm.elements.email;
+const signUpPassword = signUpForm.elements.password;
+const signUpName = signUpForm.elements.name;
+const signUpEmailError = signUpForm.querySelector("#emailError");
+const signUpPasswordError = signUpForm.querySelector("#passwordError");
+const signUpNameError = signUpForm.querySelector("#nameError");
+const signUpExistError = signUpForm.querySelector("#existError");
+const signUpButton = signUpForm.querySelector("#signUp");
+const signUpToSignInButton = document.querySelector("#gotoSignIn");
+
+signUpEmail.addEventListener('input', validate);  
+signUpPassword.addEventListener('input', validate); 
+signUpName.addEventListener('input', validate); 
+
+signUpToSignInButton.addEventListener('click', function() {
     popups.signUp.classList.remove('popup_opened');
     popups.signInOpen();
-})
+});
+
+signUpForm.addEventListener('submit', function() {
+    event.preventDefault();
+    signUpExistError.textContent = "";
+    signUpButton.textContent = 'Загрузка...';
+    mainapi.signUp(signUpName.value, signUpPassword.value, signUpEmail.value)
+        .then(res => {
+            if(res.message) {
+                console.log(res.message)
+                signUpExistError.textContent = res.message;
+                signUpButton.textContent = 'Зарегистрироваться';
+            } else {
+                popups.signUp.classList.remove('popup_opened');
+                popups.registeredOpen();
+                signUpButton.textContent = 'Зарегистрироваться';
+                signUpForm.reset();
+            }
+        })
+
+});
+
+const registeredToSignInButton = document.querySelector("#registeredGotoSignIn");
+registeredToSignInButton.addEventListener('click', function() {
+    popups.registered.classList.remove('popup_opened');
+    popups.signInOpen();
+});
+
+
+
+
+function validate(target) {
+    target.target.nextElementSibling.classList.add("popup__error-message_hidden");
+    if(!target.target.checkValidity()) {
+        target.target.nextElementSibling.classList.remove("popup__error-message_hidden");
+    }
+}
+
+document.addEventListener('click', function() {     
+    if (event.target.classList.contains('popup__close')) {
+        popups.close(event);
+    }
+}); 
