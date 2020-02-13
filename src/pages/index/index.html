@@ -14,22 +14,25 @@
     <div class="page">
         <section class="search">
             <div class="menu">
-                <a href="http://newsexplorer-manko.site" class="menu__logo">NewsExplorer</a>
+                <!-- <a href="http://newsexplorer-manko.site" class="menu__logo">NewsExplorer</a>
                 <div class="menu__items">
                     <div class="menu__item menu__item_active">
-                        <a  href="index.html" class="menu__item-text menu__item-text_active">Главная</a>
+                        <a href="index.html" class="menu__item-text menu__item-text_active">Главная</a>
+                    </div>
+                    <div class="menu__item menu__item_active">
+                        <a href="saved.html" class="menu__item-text menu__item-text_active">Сохранённые статьи</a>
                     </div>
                     <button id="authorize" class="menu__button">
                         <span class="menu__button-text">Авторизоваться</span>
                     </button>
                     <button id="unauthorize" class="menu__button menu__button_invisible">
                         <span class="menu__button-text">Имя</span>
-                        <img src="<%=require('../../images/logout.png').default%>" alt="" class="menu__button-image menu__button-image_on">
+                        <div class="menu__button-image">
                     </button>
                     <button id="openMenu" class="menu__open">
                         <img src="<%=require('../../images/menu-open.png').default%>" alt="" class="menu__button-image menu__button-image_on">
                     </button>
-                </div>
+                </div> -->
             </div>
             <h1 class="search__title">Что в мире творится?</h1>
             <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
@@ -120,7 +123,7 @@
             </div>
         </section>
         <!-- popup_opened -->
-        <div id="registeredPopup" class="popup popup_opened">
+        <div id="registeredPopup" class="popup">
             <div class="popup__container">
                 <img src="<%=require('../../images/close.svg').default%>" alt="" class="popup__close">
                 <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>

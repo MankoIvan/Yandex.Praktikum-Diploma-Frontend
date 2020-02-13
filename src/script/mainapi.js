@@ -36,7 +36,7 @@ export default class MainApi {
             method: 'GET',
             credentials: 'include',
         })
-        .then(res => this.checkStatus(res)) 
+        .then(res => res.json()) 
     }
     getArticles() {
         return fetch(`${this.url}/articles`, {

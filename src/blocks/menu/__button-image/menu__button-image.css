@@ -1,9 +1,10 @@
-@import url("./__button-image_on/menu__button-image_on.css");
+@import url("./__button-image_theme/menu__button-image_theme.css");
 
 .menu__button-image {
-    display: none;
+    display: block;
     height: 24px;
     width: 24px;
     background-size: cover;
     margin-left: 3px;
+    background-image: url(../../../images/logout.png)
 }

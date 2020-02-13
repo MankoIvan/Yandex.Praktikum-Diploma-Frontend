@@ -9,11 +9,16 @@ const serverUrl = 'http://localhost:3000';
 
 import MainApi from "../../script/mainapi.js";
 import Popup from "../../script/popup.js";
+import Header from "../../script/header.js";
 
 const mainapi = new MainApi({
     baseUrl: serverUrl,
 })
 const popups = new Popup();
+
+
+const header = new Header("index");
+render();
 
 const authButton = document.querySelector("#authorize");
 authButton.addEventListener('click', function() {
@@ -120,3 +125,15 @@ document.addEventListener('click', function() {
         popups.close(event);
     }
 }); 
+
+function render() {
+    mainapi.getUser()
+        .then(res => {
+            console.log(res);
+            if(res.message) {
+                header.render(false, "");
+            } else {
+                header.render(true, res.name);
+            }
+        })
+}
