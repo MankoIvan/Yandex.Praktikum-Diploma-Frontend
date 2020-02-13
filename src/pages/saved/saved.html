@@ -124,12 +124,14 @@
         </section>
         <div class="popup">
             <div class="popup__container">
+                <img src="<%=require('../../images/close.svg').default%>" alt="" class="popup__close">
                 <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-                <a href="#" class="popup__link">Выполнить вход</a>
+                <button class="popup__link">Выполнить вход</button>
             </div>
         </div>
         <div class="popup">
             <div class="popup__container">
+                <img src="<%=require('../../images/close.svg').default%>" alt="" class="popup__close">
                 <h3 class="popup__title">Вход</h3>
                 <form class="popup__form" name="signin">
                     <span class="popup__input-indicator">Email</span>
@@ -142,17 +144,18 @@
                 <button class="popup__button">Войти</button>
                 <div class="popup__switch">
                     <p class="popup__text">или&#8194;</p>
-                    <a href="#" class="popup__link">Зарегистрироваться</a>
+                    <button class="popup__link">Зарегистрироваться</button>
                 </div>
             </div>
         </div>
-        <div class="popup">
+        <div class="popup popup_opened">
             <div class="popup__container">
+                <img src="<%=require('../../images/close.svg').default%>" alt="" class="popup__close">
                 <h3 class="popup__title">Регистрация</h3>
                 <form class="popup__form" name="signup">
                     <span class="popup__input-indicator">Email</span>
                     <input class="popup__input" type="email" pattern="[a-zA-Z\d]+@[a-zA-Z]+\.[a-zA-Z]+" name ="email" placeholder="Введите email" required>
-                    <span class="popup__error-message">Текст ошибки</span>
+                    <span class="popup__error-message">&nbsp;</span>
                     <span class="popup__input-indicator">Пароль</span>
                     <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]" placeholder="Введите пароль" required>
                     <span class="popup__error-message">Текст ошибки</span>
@@ -164,7 +167,7 @@
                 <button class="popup__button">Зарегистрироваться</button>
                 <div class="popup__switch">
                     <p class="popup__text">или&#8194;</p>
-                    <a href="#" class="popup__link">Войти</a>
+                    <button class="popup__link">Войти</button>
                 </div>
             </div>
         </div>
