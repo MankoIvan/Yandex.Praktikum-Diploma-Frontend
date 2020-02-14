@@ -31,6 +31,16 @@ export default class MainApi {
         })
         .then(res => res.json()) 
     }
+    logout() {
+        return fetch(`${this.url}/logout`, {
+            credentials: 'include',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+    }
     getUser() {
         return fetch(`${this.url}/users/me`, {
             method: 'GET',

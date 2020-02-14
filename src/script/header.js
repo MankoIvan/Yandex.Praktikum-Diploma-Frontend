@@ -5,6 +5,7 @@ export default class Header {
         this.menu = document.querySelector(".menu");
     }
     render(isLoggedIn, name) {
+        this.menu.innerHTML = "";
         if(this.theme) {
             this.menu.classList.add("menu_theme");
         }
@@ -101,7 +102,8 @@ export default class Header {
         if (this.theme) {
             button.classList.add("menu__button_theme");
         }
-        button.setAttribute('id', "unauthorize");
+        button.id = "unauthorize";
+        //button.setAttribute('id', "unauthorize");
         const buttonText = document.createElement("span");
         buttonText.classList.add("menu__button-text");
         if (this.theme) {

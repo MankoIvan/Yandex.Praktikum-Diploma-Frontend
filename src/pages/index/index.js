@@ -11,19 +11,10 @@ import MainApi from "../../script/mainapi.js";
 import Popup from "../../script/popup.js";
 import Header from "../../script/header.js";
 
-const mainapi = new MainApi({
-    baseUrl: serverUrl,
-})
+const mainapi = new MainApi({baseUrl: serverUrl});
 const popups = new Popup();
-
-
 const header = new Header("index");
 render();
-
-const authButton = document.querySelector("#authorize");
-authButton.addEventListener('click', function() {
-    popups.signInOpen(event);
-});
 
 const signInForm = document.forms.signin;
 const signInEmail = signInForm.elements.email;
@@ -54,23 +45,15 @@ signInForm.addEventListener('submit', function() {
                 popups.signIn.classList.remove('popup_opened');
                 signInButton.textContent = 'Войти';
                 signInForm.reset();
-                //menu.render
+                render();
             }
         })
 });
-
-
-
-
-
 
 const signUpForm = document.forms.signup;
 const signUpEmail = signUpForm.elements.email;
 const signUpPassword = signUpForm.elements.password;
 const signUpName = signUpForm.elements.name;
-const signUpEmailError = signUpForm.querySelector("#emailError");
-const signUpPasswordError = signUpForm.querySelector("#passwordError");
-const signUpNameError = signUpForm.querySelector("#nameError");
 const signUpExistError = signUpForm.querySelector("#existError");
 const signUpButton = signUpForm.querySelector("#signUp");
 const signUpToSignInButton = document.querySelector("#gotoSignIn");
@@ -113,6 +96,8 @@ registeredToSignInButton.addEventListener('click', function() {
 
 
 
+
+
 function validate(target) {
     target.target.nextElementSibling.classList.add("popup__error-message_hidden");
     if(!target.target.checkValidity()) {
@@ -129,11 +114,25 @@ document.addEventListener('click', function() {
 function render() {
     mainapi.getUser()
         .then(res => {
-            console.log(res);
             if(res.message) {
                 header.render(false, "");
+                return Promise.resolve();
             } else {
                 header.render(true, res.name);
+                return Promise.reject();
             }
         })
+        .then(() => {
+            const authButton = document.querySelector("#authorize");
+            authButton.addEventListener('click', function() {
+                popups.signInOpen(event);
+            });
+        })
+        .catch(() => {
+            const unauthButton = document.querySelector("#unauthorize");
+            unauthButton.addEventListener('click', function() {
+                mainapi.logout();
+                header.render(false, "");
+            }); 
+        });
 }
