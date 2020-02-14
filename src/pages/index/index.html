@@ -37,20 +37,20 @@
             <h1 class="search__title">Что в мире творится?</h1>
             <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
             <form name="search" class="search__form">
-                <input type="text" name="search-word" placeholder="Введите тему новости" class="search__input">
-                <button id="search" class="search__button">Искать</button>
+                <input type="text" name="searchWord" placeholder="Введите тему новости" class="search__input" required>
+                <button id="search" name="searchButton" class="search__button">Искать</button>
             </form>            
         </section>
         <!-- result_opened вставить класс чтоб отобразить секцию-->
-        <section class="result">
+        <section class="result result_opened">
             <!-- result__nothing_opened вставить класс чтоб отобразить -->
-            <div class="result__nothing result__nothing_opened">
+            <div class="result__nothing">
                 <img src="<%=require('../../images/not-found.png').default%>" alt="" class="result__nothing-image">
                 <h2 class="result__nothing-title">Ничего не найдено</h2>
                 <p class="result__nothing-subtitle">К сожалению по вашему запросу ничего не найдено.</p>
             </div>
             
-            <!-- Примеры карточек -->
+            <!-- Примеры карточек  result__exist_opened-->
             <div class="result__exist result__exist_opened">
                 <h2 class="result__exist-title">Результаты поиска</h2>
                 <div class="result__exist-container">
@@ -94,7 +94,7 @@
                 <button id="showMore" class="result__exist-button">Показать еще</button>
             </div>
             <!-- result__loading_opened вставить класс чтоб отобразить -->
-            <div class="result__loading result__loading_opened">
+            <div class="result__loading">
                 <img src="<%=require('../../images/loader.png').default%>" alt="Loader" class="result__loading-image">
                 <h2 class="result__loading-title">Идет поиск новостей...</h2>
             </div>

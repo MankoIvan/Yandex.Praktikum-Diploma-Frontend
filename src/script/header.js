@@ -103,7 +103,6 @@ export default class Header {
             button.classList.add("menu__button_theme");
         }
         button.id = "unauthorize";
-        //button.setAttribute('id', "unauthorize");
         const buttonText = document.createElement("span");
         buttonText.classList.add("menu__button-text");
         if (this.theme) {

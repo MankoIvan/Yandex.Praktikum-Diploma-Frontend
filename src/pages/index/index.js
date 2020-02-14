@@ -1,17 +1,15 @@
 import "./index.css";
 
-/* fa01878ef86944b3b9eae4c12b3f9447 */
-/* fetch("https://newsapi.org/v2/everything?q=Природа&from=2020-01-11&sortBy=publishedAt&pageSize=100&apiKey=fa01878ef86944b3b9eae4c12b3f9447")
-    .then(res => res.json())
-    .then(res => console.log(res)); */
-
 const serverUrl = 'http://localhost:3000';
 
 import MainApi from "../../script/mainapi.js";
+import NewsApi from "../../script/newsapi.js"
 import Popup from "../../script/popup.js";
 import Header from "../../script/header.js";
+import NewsCard from "../../script/newscard.js"
 
-const mainapi = new MainApi({baseUrl: serverUrl});
+const mainApi = new MainApi({baseUrl: serverUrl});
+const newsApi = new NewsApi();
 const popups = new Popup();
 const header = new Header("index");
 render();
@@ -35,7 +33,7 @@ signInForm.addEventListener('submit', function() {
     event.preventDefault();
     signInPasswordError.textContent = "";
     signInButton.textContent = 'Загрузка...';
-    mainapi.signIn(signInEmail.value, signInPassword.value)
+    mainApi.signIn(signInEmail.value, signInPassword.value)
         .then(res => {
             if(res.message) {
                 console.log(res.message)
@@ -71,7 +69,7 @@ signUpForm.addEventListener('submit', function() {
     event.preventDefault();
     signUpExistError.textContent = "";
     signUpButton.textContent = 'Загрузка...';
-    mainapi.signUp(signUpName.value, signUpPassword.value, signUpEmail.value)
+    mainApi.signUp(signUpName.value, signUpPassword.value, signUpEmail.value)
         .then(res => {
             if(res.message) {
                 console.log(res.message)
@@ -93,6 +91,35 @@ registeredToSignInButton.addEventListener('click', function() {
     popups.signInOpen();
 });
 
+const searchForm = document.forms.search;
+const searchInput = searchForm.elements.searchWord;
+const searchButton = searchForm.elements.searchButton;
+const resultContainer = document.querySelector(".result");
+const resultNothing = resultContainer.querySelector(".result__nothing")
+const resultExist = resultContainer.querySelector(".result__exist")
+const reslutLoading = resultContainer.querySelector(".result__loading")
+
+searchInput.addEventListener('input', function() {
+    if (!event.target.checkValidity()) {
+        searchButton.setAttribute('disabled', true);
+    } else {
+        searchButton.removeAttribute('disabled');
+    }
+})
+
+searchForm.addEventListener('submit', function() {
+    event.preventDefault();
+    resultContainer.classList.add("result_opened");
+    reslutLoading.classList.add("result__loading_opened");
+    newsApi.getNews(searchInput.value)
+        .then(res => {
+            res.articles.forEach(item => {
+                const card = new NewsCard(item);
+                console.log(card);
+            })
+        });
+})
+
 
 
 
@@ -112,7 +139,7 @@ document.addEventListener('click', function() {
 }); 
 
 function render() {
-    mainapi.getUser()
+    mainApi.getUser()
         .then(res => {
             if(res.message) {
                 header.render(false, "");
@@ -131,7 +158,7 @@ function render() {
         .catch(() => {
             const unauthButton = document.querySelector("#unauthorize");
             unauthButton.addEventListener('click', function() {
-                mainapi.logout();
+                mainApi.logout();
                 header.render(false, "");
             }); 
         });
