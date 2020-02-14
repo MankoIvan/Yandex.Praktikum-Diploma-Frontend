@@ -14,7 +14,7 @@
     <div class="page">
         <section class="intro">
             <div class="menu menu_theme">
-                <a href="http://newsexplorer-manko.site" class="menu__logo menu__logo_theme">NewsExplorer</a>
+                <!-- <a href="http://newsexplorer-manko.site" class="menu__logo menu__logo_theme">NewsExplorer</a>
                 <div class="menu__items">
                     <div class="menu__item">
                         <a href="index.html" class="menu__item-text menu__item-text_theme">Главная</a>
@@ -29,7 +29,7 @@
                     <button class="menu__open">
                         <img src="<%=require('../../images/menu-open__theme.png').default%>" alt="" class="menu__button-image menu__button-image_on">
                     </button>
-                </div>
+                </div> -->
             </div>
             <h2 class="intro__subtitle">Сохранённые статьи</h2>
             <h1 class="intro__title">Грета, у вас 5 сохранённых статей</h1>
@@ -122,52 +122,54 @@
                 </a>
             </div>
         </section>
-        <div class="popup">
+        <!-- popup_opened -->
+        <div id="registeredPopup" class="popup">
             <div class="popup__container">
                 <img src="<%=require('../../images/close.svg').default%>" alt="" class="popup__close">
                 <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-                <button class="popup__link">Выполнить вход</button>
+                <button id="registeredGotoSignIn" class="popup__link">Выполнить вход</button>
             </div>
         </div>
-        <div class="popup">
+        <div id="signInPopup" class="popup">
             <div class="popup__container">
                 <img src="<%=require('../../images/close.svg').default%>" alt="" class="popup__close">
                 <h3 class="popup__title">Вход</h3>
                 <form class="popup__form" name="signin">
                     <span class="popup__input-indicator">Email</span>
-                    <input class="popup__input" type="email" pattern="[a-zA-Z\d]+@[a-zA-Z]+\.[a-zA-Z]+" name ="email" placeholder="Введите email" required>
-                    <span class="popup__error-message">Текст ошибки</span>
+                    <input class="popup__input" name ="email" type="email" pattern="[a-zA-Z\d]+@[a-zA-Z]+\.[a-zA-Z]+" placeholder="Введите email" required>
+                    <span class="popup__error-message popup__error-message_hidden" id="emailError">Неправильный формат email</span>
                     <span class="popup__input-indicator">Пароль</span>
-                    <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]" placeholder="Введите пароль" required>
-                    <span class="popup__error-message">Текст ошибки</span>
+                    <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]{8,}" minlength="8" placeholder="Введите пароль" required>
+                    <span class="popup__error-message popup__error-message_hidden" id="passwordError">Такой пароль не подходит</span>
+                    <span class="popup__error-message popup__error-message_user" id="wrongPasswordError">&nbsp;</span>
+                    <button id="signIn" class="popup__button">Войти</button>
                 </form>
-                <button class="popup__button">Войти</button>
                 <div class="popup__switch">
                     <p class="popup__text">или&#8194;</p>
-                    <button class="popup__link">Зарегистрироваться</button>
+                    <button id="gotoSignUp" class="popup__link">Зарегистрироваться</button>
                 </div>
             </div>
         </div>
-        <div class="popup popup_opened">
+        <div id="signUpPopup" class="popup">
             <div class="popup__container">
                 <img src="<%=require('../../images/close.svg').default%>" alt="" class="popup__close">
                 <h3 class="popup__title">Регистрация</h3>
                 <form class="popup__form" name="signup">
                     <span class="popup__input-indicator">Email</span>
                     <input class="popup__input" type="email" pattern="[a-zA-Z\d]+@[a-zA-Z]+\.[a-zA-Z]+" name ="email" placeholder="Введите email" required>
-                    <span class="popup__error-message">&nbsp;</span>
+                    <span class="popup__error-message popup__error-message_hidden" id="emailError">Неправильный формат email</span>
                     <span class="popup__input-indicator">Пароль</span>
-                    <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]" placeholder="Введите пароль" required>
-                    <span class="popup__error-message">Текст ошибки</span>
+                    <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]{8,}" minlength="8" placeholder="Введите пароль" required>
+                    <span class="popup__error-message popup__error-message_hidden" id="passwordError">Такой пароль не подходит</span>
                     <span class="popup__input-indicator">Имя</span>
                     <input class="popup__input" type="text" name ="name"  pattern="[А-ЯЁ][а-яё]{1,}-?[А-ЯЁ]?[а-яё]{0,}" minlength="2" maxlength="30" placeholder="Введите пароль" required>
-                    <span class="popup__error-message">Текст ошибки</span>
-                    <span class="popup__error-message popup__error-message_user">Такой пользователь уже есть</span>
+                    <span class="popup__error-message popup__error-message_hidden" id="nameError">Такое имя не подходит</span>
+                    <span class="popup__error-message popup__error-message_user" id="existError">&nbsp;</span>
+                    <button id="signUp" class="popup__button">Зарегистрироваться</button>
                 </form>
-                <button class="popup__button">Зарегистрироваться</button>
                 <div class="popup__switch">
                     <p class="popup__text">или&#8194;</p>
-                    <button class="popup__link">Войти</button>
+                    <button id="gotoSignIn" class="popup__link">Войти</button>
                 </div>
             </div>
         </div>

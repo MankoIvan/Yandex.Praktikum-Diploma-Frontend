@@ -6,13 +6,14 @@ import MainApi from "../../script/mainapi.js";
 import NewsApi from "../../script/newsapi.js"
 import Popup from "../../script/popup.js";
 import Header from "../../script/header.js";
-import NewsCard from "../../script/newscard.js"
+import NewsCardList from "../../script/newscardlist.js";
 
 const mainApi = new MainApi({baseUrl: serverUrl});
 const newsApi = new NewsApi();
 const popups = new Popup();
 const header = new Header("index");
-render();
+const newsCardList = new NewsCardList(document.querySelector(".result__exist-container"));
+renderMenu();
 
 const signInForm = document.forms.signin;
 const signInEmail = signInForm.elements.email;
@@ -43,7 +44,7 @@ signInForm.addEventListener('submit', function() {
                 popups.signIn.classList.remove('popup_opened');
                 signInButton.textContent = 'Войти';
                 signInForm.reset();
-                render();
+                renderMenu();
             }
         })
 });
@@ -110,15 +111,34 @@ searchInput.addEventListener('input', function() {
 searchForm.addEventListener('submit', function() {
     event.preventDefault();
     resultContainer.classList.add("result_opened");
+    resultNothing.classList.remove("result__nothing_opened");
+    resultExist.classList.remove("result__exist_opened");
     reslutLoading.classList.add("result__loading_opened");
     newsApi.getNews(searchInput.value)
         .then(res => {
-            res.articles.forEach(item => {
-                const card = new NewsCard(item);
-                console.log(card);
-            })
+            if (res.articles.length) {
+                mainApi.getUser()
+                    .then(res1 => {
+                        newsCardList.renderFromSearch(res.articles, res1.message);
+                        reslutLoading.classList.remove("result__loading_opened");
+                        resultExist.classList.add("result__exist_opened");
+                    })
+            } else {
+                newsCardList.clearCardList()
+                reslutLoading.classList.remove("result__loading_opened");
+                resultNothing.classList.add("result__nothing_opened");
+
+            }
         });
-})
+});
+
+const showMoreButton = resultExist.querySelector("#showMore");
+showMoreButton.addEventListener('click', function() {
+    mainApi.getUser()
+    .then(res => {
+        newsCardList.renderSomeCards(res.message);
+    })
+});
 
 
 
@@ -138,7 +158,7 @@ document.addEventListener('click', function() {
     }
 }); 
 
-function render() {
+function renderMenu() {
     mainApi.getUser()
         .then(res => {
             if(res.message) {
@@ -160,6 +180,9 @@ function render() {
             unauthButton.addEventListener('click', function() {
                 mainApi.logout();
                 header.render(false, "");
+                resultContainer.classList.remove("result_opened");
+                newsCardList.clearCardList();
+                searchForm.reset();
             }); 
         });
 }
