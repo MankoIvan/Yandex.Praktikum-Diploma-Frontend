@@ -5,7 +5,7 @@ import Popup from "../../script/popup.js";
 import Header from "../../script/header.js";
 import NewsCardList from "../../script/newscardlist.js";
 
-const serverUrl = 'http://localhost:3000';
+const serverUrl = 'http://api.newsexplorer-manko.site';
 
 const mainApi = new MainApi({baseUrl: serverUrl});
 const newsApi = new NewsApi();
