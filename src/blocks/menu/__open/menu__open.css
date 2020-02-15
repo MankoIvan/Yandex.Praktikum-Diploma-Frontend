@@ -8,6 +8,10 @@
     height: 24px;
     width: 24px;
     background-size: cover;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
 }
 
 @media screen and (max-width: 700px) {

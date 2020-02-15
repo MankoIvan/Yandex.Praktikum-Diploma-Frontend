@@ -5,11 +5,12 @@ export default class Header {
         this.menu = document.querySelector(".menu");
     }
     render(isLoggedIn, name) {
-        this.menu.innerHTML = "";
+        while (this.menu.firstChild) this.menu.removeChild(this.menu.firstChild);
         if(this.theme) {
             this.menu.classList.add("menu_theme");
         }
 
+        this.menu.appendChild(this.renderDarkener());
         this.menu.appendChild(this.renderLogo());
 
         const menuItems = document.createElement("div");
@@ -23,12 +24,51 @@ export default class Header {
         } else {
             menuItems.appendChild(this.renderAuthButton());
         }
-
         this.menu.appendChild(menuItems);
-
-
+        this.menu.appendChild(this.renderMenuOpenButton());
     }
+    
+    renderDarkener() {
+        const darkener = document.createElement("div");
+        darkener.classList.add("menu__darkener");
+        return darkener;
+    }
+    toggleMenu(menu, theme) {
+        menu.classList.toggle("menu_opened");
+        menu.querySelector(".menu__items").classList.toggle("menu__items_opened");
+        menu.querySelector(".menu__darkener").classList.toggle("menu__darkener_opened");
+        menu.querySelector(".menu__button").classList.toggle("menu__button_menu");
+        if (theme) {
+            menu.querySelector("#savedItemText").classList.toggle("menu__item-text_active-theme");
+            menu.querySelector("#savedItemText").classList.toggle("menu__item-text_active");
+            menu.querySelector("#savedItemText").classList.toggle("menu__item-text_theme");
+            menu.querySelector("#indexItemText").classList.toggle("menu__item-text_theme");
+            menu.querySelector(".menu__button").classList.toggle("menu__button_theme");
+            menu.querySelector(".menu__button-text").classList.toggle("menu__button-text_theme");
+            menu.querySelector(".menu__button-image").classList.toggle("menu__button-image_theme");
+        }
+    }
+    renderMenuOpenButton() {
+        const menuOpen = document.createElement("button");
+        menuOpen.classList.add("menu__open");
+        const menuOpenImage = document.createElement("div");
+        menuOpenImage.classList.add("menu__open-image");
+        if (this.theme) {
+            menuOpenImage.classList.add("menu__open-image_theme");
+        }
+        const toggleMenu = this.toggleMenu
+        const menu = this.menu;
+        const theme = this.theme;
+        menuOpen.addEventListener('click', function() {
+            toggleMenu(menu, theme);
+        })
 
+
+        menuOpen.appendChild(menuOpenImage);
+
+
+        return menuOpen;
+    }
     renderLogo() {
         const menuLogo = document.createElement("a");
         menuLogo.setAttribute('href', "http://newsexplorer-manko.site");
@@ -46,6 +86,7 @@ export default class Header {
         menuItemMainText.setAttribute('href', "index.html");
         menuItemMainText.classList.add("menu__item-text");
         menuItemMainText.innerText = "Главная";
+        menuItemMainText.id = "indexItemText";
 
         if (this.page === "index") {
             menuItemMain.classList.add("menu__item_active");
@@ -65,14 +106,16 @@ export default class Header {
         menuItemSavedText.setAttribute('href', "saved.html");
         menuItemSavedText.classList.add("menu__item-text");
         menuItemSavedText.innerText = "Сохранённые статьи";
+        menuItemSavedText.id = "savedItemText";
 
         if (this.page === "saved") {
             if (this.theme) {
                 menuItemSaved.classList.add("menu__item_active-theme");
                 menuItemSavedText.classList.add("menu__item-text_active-theme");                
+            } else {
+                menuItemSaved.classList.add("menu__item_active");
+                menuItemSavedText.classList.add("menu__item-text_active");
             }
-            menuItemSaved.classList.add("menu__item_active");
-            menuItemSavedText.classList.add("menu__item-text_active");
         }
         if (this.theme) {
             menuItemSavedText.classList.add("menu__item-text_theme");

@@ -8,7 +8,7 @@ export default class CardList {
     }
     renderFromSearch(cards, keyword, isLoggedIn) {
         this.keyword = keyword;
-        this.container.innerHTML = "";
+        while (this.container.firstChild) this.container.removeChild(this.container.firstChild);
         this.count = 0;
         this.articlesNumber = cards.length;
         this.cards = cards;
@@ -40,7 +40,7 @@ export default class CardList {
         this.container.appendChild(card.cardElement);
     }
     clearCardList() {
-        this.container.innerHTML = "";
+        while (this.container.firstChild) this.container.removeChild(this.container.firstChild);
         this.count = 0;
         this.articlesNumber = 0;
     }

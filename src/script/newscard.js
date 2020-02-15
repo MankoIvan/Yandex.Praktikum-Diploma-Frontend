@@ -101,12 +101,18 @@ export default class NewsCard {
 
     }
     book() {     
-        this.cardElement.querySelector(".card__bookmark-image").classList.add("card__bookmark-image_marked");
-        this.mainApi.createArticle(this.keyword, this.title, this.text, this.date, this.source, this.link, this.image);
+        this.mainApi.createArticle(this.keyword, this.title, this.text, this.date, this.source, this.link, this.image)
+            .then(() => {
+                this.cardElement.querySelector(".card__bookmark-image").classList.add("card__bookmark-image_marked");
+            })
+            .catch(res => console.log(res.message));
     }
     delete() {
-        this.mainApi.deleteArticle(this._id);
-        this.cardElement.remove();
+        this.mainApi.deleteArticle(this._id)
+        .then(() => {
+            this.cardElement.remove();
+        })
+        .catch(res => console.log(res.message));
     }
     setMainApi(mainApi) {
         this.mainApi = mainApi;

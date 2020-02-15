@@ -1,0 +1,10 @@
+@import url("./__open-image_theme/menu__open-image_theme.css");
+@import url("./__open-image_close/menu__open-image_close.css");
+
+.menu__open-image {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-size: cover;
+    background-image: url(../../../images/menu-open.png);
+}

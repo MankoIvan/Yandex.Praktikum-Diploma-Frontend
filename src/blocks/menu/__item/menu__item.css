@@ -8,9 +8,10 @@
     align-items: center;
     text-decoration: none;
     margin-left: 34px;
-}
-@media screen and (max-width: 700px) {
+}@media screen and (max-width: 700px) {
     .menu__item {
-        display: none;
+        height: auto;
+        padding: 12px 16px;
+        margin: auto
     }
 }

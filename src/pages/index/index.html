@@ -30,7 +30,7 @@
                         <div class="menu__button-image">
                     </button>
                     <button id="openMenu" class="menu__open">
-                        <img src="<%=require('../../images/menu-open.png').default%>" alt="" class="menu__button-image menu__button-image_on">
+                        <img src="<%=require('../../images/menu-open.png').default%>" alt="" class="menu__button-image">
                     </button>
                 </div> -->
             </div>
@@ -126,7 +126,7 @@
                     <input class="popup__input" name ="password" type="password" pattern="[!@#$%^&a-zA-Z\d]{8,}" minlength="8" placeholder="Введите пароль" required>
                     <span class="popup__error-message popup__error-message_hidden" id="passwordError">Такой пароль не подходит</span>
                     <span class="popup__input-indicator">Имя</span>
-                    <input class="popup__input" type="text" name ="name"  pattern="[А-ЯЁ][а-яё]{1,}-?[А-ЯЁ]?[а-яё]{0,}" minlength="2" maxlength="30" placeholder="Введите пароль" required>
+                    <input class="popup__input" type="text" name ="name"  pattern="[А-ЯЁ][а-яё]{1,}-?[А-ЯЁ]?[а-яё]{0,}" minlength="2" maxlength="30" placeholder="Введите имя" required>
                     <span class="popup__error-message popup__error-message_hidden" id="nameError">Такое имя не подходит</span>
                     <span class="popup__error-message popup__error-message_user" id="existError">&nbsp;</span>
                     <button id="signUp" class="popup__button">Зарегистрироваться</button>

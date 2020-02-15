@@ -1,14 +1,13 @@
 import "./saved.css";
 import MainApi from "../../script/mainapi.js";
-import NewsApi from "../../script/newsapi.js"
 import Popup from "../../script/popup.js";
 import Header from "../../script/header.js";
 import NewsCardList from "../../script/newscardlist.js";
 
-const serverUrl = 'http://api.newsexplorer-manko.site';
+import * as consts from "../../script/consts.js";
 
-const mainApi = new MainApi({baseUrl: serverUrl});
-const newsApi = new NewsApi();
+const mainApi = new MainApi(consts.MAIN_API_URL);
+unAuthRedirect();
 const popups = new Popup();
 const header = new Header("saved");
 const savedCardList = new NewsCardList(document.querySelector(".saved-articles__container"));
@@ -35,31 +34,30 @@ const registeredToSignInButton = document.querySelector("#registeredGotoSignIn")
 const savedTitle = document.querySelector(".intro__title");
 const savedKeywords = document.querySelector(".intro__keywords");
 
-
+function unAuthRedirect() {
+    mainApi.getUser()
+        .catch(err => {
+            window.location.href = "index.html";
+        });
+}
 function renderMenu() {
     mainApi.getUser()
         .then(res => {
-            if(res.message) {
-                header.render(false, "");
-                return Promise.resolve();
-            } else {
-                header.render(true, res.name);
-                return Promise.reject();
-            }
-        })
-        .then(() => {
-            const authButton = document.querySelector("#authorize");
-            authButton.addEventListener('click', function() {
-                popups.signInOpen(event);
-            });
-        })
-        .catch(() => {
+            header.render(true, res.name);
             const unauthButton = document.querySelector("#unauthorize");
             unauthButton.addEventListener('click', function() {
                 mainApi.logout();
                 window.location.href = "index.html";
             }); 
-        });
+        })
+        .catch(err => {
+            header.render(false, "");
+            const authButton = document.querySelector("#authorize");
+            authButton.addEventListener('click', function() {
+                header.toggleMenu(header.menu, true);
+                popups.signInOpen(event);
+            });
+        })
 };
 function validate(target) {
     target.target.nextElementSibling.classList.add("popup__error-message_hidden");
@@ -75,9 +73,7 @@ function keywordCounter(articles) {
       }, []);    
     const sortedByPopular = Object.entries(countKeywords).sort((a, b) => b[1] - a[1]);
     const uniqueArray = sortedByPopular.map((item) => item[0]);
-    console.log(uniqueArray);
     if (uniqueArray.length === 0) {
-        console.log(`hello ${uniqueArray}`)
         return ""
     } else if (uniqueArray.length === 1) {
         return `По ключевому слову: ${uniqueArray[0]}`;
@@ -105,17 +101,16 @@ function bindHandlers() {
         signInButton.textContent = 'Загрузка...';
         mainApi.signIn(signInEmail.value, signInPassword.value)
             .then(res => {
-                if(res.message) {
-                    console.log(res.message)
-                    signInPasswordError.textContent = res.message;
-                    signInButton.textContent = 'Войти';
-                } else {
-                    popups.signIn.classList.remove('popup_opened');
-                    signInButton.textContent = 'Войти';
-                    signInForm.reset();
-                    renderMenu();
-                }
+                popups.signIn.classList.remove('popup_opened');
+                signInButton.textContent = 'Войти';
+                signInForm.reset();
+                renderMenu();
             })
+            .catch(err => {
+                const text = (err === "Ошибка: 401") ? "Неверный email или пароль" : ""
+                signInPasswordError.textContent = text;
+                signInButton.textContent = 'Войти';
+            });
     });
     
     signUpEmail.addEventListener('input', validate);  
@@ -126,25 +121,23 @@ function bindHandlers() {
         popups.signUp.classList.remove('popup_opened');
         popups.signInOpen();
     });
-    
+   
     signUpForm.addEventListener('submit', function() {
         event.preventDefault();
         signUpExistError.textContent = "";
         signUpButton.textContent = 'Загрузка...';
         mainApi.signUp(signUpName.value, signUpPassword.value, signUpEmail.value)
             .then(res => {
-                if(res.message) {
-                    console.log(res.message)
-                    signUpExistError.textContent = res.message;
-                    signUpButton.textContent = 'Зарегистрироваться';
-                } else {
-                    popups.signUp.classList.remove('popup_opened');
-                    popups.registeredOpen();
-                    signUpButton.textContent = 'Зарегистрироваться';
-                    signUpForm.reset();
-                }
+                popups.signUp.classList.remove('popup_opened');
+                popups.registeredOpen();
+                signUpButton.textContent = 'Зарегистрироваться';
+                signUpForm.reset();
             })
-    
+            .catch(err => {
+                const text = (err === "Ошибка: 409") ? "Пользователь с таким email уже существует" : ""
+                signUpExistError.textContent = text;
+                signUpButton.textContent = 'Зарегистрироваться';
+            })
     });
     registeredToSignInButton.addEventListener('click', function() {
         popups.registered.classList.remove('popup_opened');
