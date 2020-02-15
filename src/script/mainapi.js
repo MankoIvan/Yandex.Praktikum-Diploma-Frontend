@@ -58,6 +58,7 @@ export default class MainApi {
     createArticle(keyword, title, text, date, source, link, image) {
         return fetch(`${this.url}/articles`, {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },

@@ -1,14 +1,16 @@
 export default class NewsCard {
-    constructor(image, date, title, description, source) {
+    constructor(id, text, image, date, title, description, source, link, keyword) {
+        this._id = id;
+        this.text = text;
         this.image = image;
         this.date = date;
         this.title = title;
         this.description = description;
         this.source = source;
-
-/*         this.bookHandler = this.book.bind(this);
- */    }
-    create(isLoggedIn, bookmark, destroy) {
+        this.link = link;
+        this.keyword = keyword;
+    }
+    create(isLoggedIn, bookmark, destroy, key) {
         const card = document.createElement('div');
         card.classList.add('card');
     
@@ -26,7 +28,7 @@ export default class NewsCard {
         
         const cardDescription = document.createElement('h4');
         cardDescription.classList.add('card__description');
-        cardDescription.textContent = this.description; 
+        cardDescription.textContent = this.text; 
         
         const cardSource = document.createElement('p');
         cardSource.classList.add('card__source');
@@ -38,17 +40,30 @@ export default class NewsCard {
         card.appendChild(cardDescription);
         card.appendChild(cardSource);
 
+        if (key) {
+            const keyword = document.createElement('div');
+            keyword.classList.add('card__keyword');
+
+            const keywordText = document.createElement('p');
+            keywordText.classList.add('card__keyword-text');
+            keywordText.innerText = this.keyword;
+            keyword.appendChild(keywordText);
+
+            card.appendChild(keyword);
+        }
+
         if (destroy) {
             const cardDestroy = document.createElement('div');
             cardDestroy.classList.add('card__delete');
 
             const cardDestroyImage = document.createElement('span');
-            cardDestroy.classList.add('card__delete-image');
+            cardDestroyImage.classList.add('card__delete-image');
             cardDestroy.appendChild(cardDestroyImage);
+            cardDestroy.addEventListener('click', this.delete.bind(this));
 
             card.appendChild(cardDestroy);
 
-            const cardDestroyTip = document.createElement('div');
+            /* const cardDestroyTip = document.createElement('div');
             cardDestroyTip.classList.add('card__delete-tip');
 
             const cardDestroyTipText = document.createElement('p');
@@ -56,7 +71,7 @@ export default class NewsCard {
             cardDestroyTipText.innerText = "Удалить из сохранённых";
             cardDestroyTip.appendChild(cardDestroyTipText);
 
-            card.appendChild(cardDestroyTip);
+            card.appendChild(cardDestroyTip); */
         }
         if (bookmark) {
             const cardBookmark = document.createElement('div');
@@ -66,7 +81,7 @@ export default class NewsCard {
             const cardBookmarkImage = document.createElement('span');
             cardBookmarkImage.classList.add('card__bookmark-image');
             cardBookmark.appendChild(cardBookmarkImage);
-            cardBookmark.addEventListener('click', this.book.bind(this))
+            cardBookmark.addEventListener('click', this.book.bind(this));
 
             card.appendChild(cardBookmark);
 
@@ -85,7 +100,15 @@ export default class NewsCard {
         return card;
 
     }
-    book() {        
-        this.cardElement.querySelector("card__bookmark-image").classList.add("card__bookmark-image_marked");
+    book() {     
+        this.cardElement.querySelector(".card__bookmark-image").classList.add("card__bookmark-image_marked");
+        this.mainApi.createArticle(this.keyword, this.title, this.text, this.date, this.source, this.link, this.image);
+    }
+    delete() {
+        this.mainApi.deleteArticle(this._id);
+        this.cardElement.remove();
+    }
+    setMainApi(mainApi) {
+        this.mainApi = mainApi;
     }
 }

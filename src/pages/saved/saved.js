@@ -12,7 +12,8 @@ const mainApi = new MainApi({baseUrl: serverUrl});
 const newsApi = new NewsApi();
 const popups = new Popup();
 const header = new Header("saved");
-const newsCardList = new NewsCardList(document.querySelector(".result__exist-container"));
+const savedCardList = new NewsCardList(document.querySelector(".saved-articles__container"));
+savedCardList.setMainApi(mainApi);
 renderMenu();
 
 const signInForm = document.forms.signin;
@@ -121,10 +122,6 @@ function renderMenu() {
             unauthButton.addEventListener('click', function() {
                 mainApi.logout();
                 window.location.href = "index.html";
-                /* 
-                resultContainer.classList.remove("result_opened");
-                newsCardList.clearCardList();
-                searchForm.reset(); */
             }); 
         });
 }
@@ -134,4 +131,43 @@ function validate(target) {
     if(!target.target.checkValidity()) {
         target.target.nextElementSibling.classList.remove("popup__error-message_hidden");
     }
+}
+
+const savedTitle = document.querySelector(".intro__title");
+const savedKeywords = document.querySelector(".intro__keywords");
+mainApi.getUser()
+    .then(name => {
+        mainApi.getArticles()
+            .then(res => {
+                savedTitle.innerText = `${name.name}, у вас ${res.length} сохраненных статей`;
+                savedKeywords.innerText = keywordCounter(res);
+                savedCardList.renderSaved(res);
+                keywordCounter(res);
+            })
+            .catch(err => console.log(err))
+    })
+    .catch(err => console.log(err));
+
+function keywordCounter(articles) {
+    const keywords = articles.map((item) => item.keyword);
+    const countKeywords = keywords.reduce((sum, item) => {
+        sum[item] = (sum[item] || 0) + 1;
+        return sum;
+      }, []);    
+    const sortedByPopular = Object.entries(countKeywords).sort((a, b) => b[1] - a[1]);
+    const uniqueArray = sortedByPopular.map((item) => item[0]);
+    console.log(uniqueArray);
+    if (uniqueArray.length === 0) {
+        console.log(`hello ${uniqueArray}`)
+        return ""
+    } else if (uniqueArray.length === 1) {
+        return `По ключевому слову: ${uniqueArray[0]}`;
+    } else if (uniqueArray.length === 2) {
+        return `По ключевым словам: ${uniqueArray[0]} и ${uniqueArray[1]}`;
+    } else if (uniqueArray.length === 3) {
+        return `По ключевым словам: ${uniqueArray[0]}, ${uniqueArray[1]} и ${uniqueArray[2]}`;
+    } else if (uniqueArray.length >= 4) {
+        return `По ключевым словам: ${uniqueArray[0]}, ${uniqueArray[1]} и ${uniqueArray.length - 2} другим`;
+    }
+
 }

@@ -1,7 +1,10 @@
-.card__bookmark-image_marked {
+.card__bookmark-image.card__bookmark-image_marked {
     width: 14px;
     height: 19px;
     background-image: url(../../../../images/bookamrk-image-marked.png);
     background-size: contain;
     background-repeat: no-repeat;
+}
+.card__bookmark-image:hover {
+    background-image: url(../../../../images/bookamrk-image-marked.png);
 }

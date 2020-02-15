@@ -13,6 +13,7 @@ const newsApi = new NewsApi();
 const popups = new Popup();
 const header = new Header("index");
 const newsCardList = new NewsCardList(document.querySelector(".result__exist-container"));
+newsCardList.setMainApi(mainApi);
 renderMenu();
 
 const signInForm = document.forms.signin;
@@ -119,7 +120,7 @@ searchForm.addEventListener('submit', function() {
             if (res.articles.length) {
                 mainApi.getUser()
                     .then(res1 => {
-                        newsCardList.renderFromSearch(res.articles, res1.message);
+                        newsCardList.renderFromSearch(res.articles, searchInput.value, res1.message);
                         reslutLoading.classList.remove("result__loading_opened");
                         resultExist.classList.add("result__exist_opened");
                     })
@@ -139,8 +140,6 @@ showMoreButton.addEventListener('click', function() {
         newsCardList.renderSomeCards(res.message);
     })
 });
-
-
 
 
 
