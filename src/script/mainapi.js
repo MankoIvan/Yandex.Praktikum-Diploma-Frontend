@@ -45,6 +45,7 @@ export default class MainApi {
         return fetch(`${this.url}/users/me`, {
             method: 'GET',
             credentials: 'include',
+            'Access-Control-Allow-Origin': "*",
         })
         .then(res => res.json()) 
     }
