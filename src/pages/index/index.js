@@ -1,12 +1,11 @@
 import "./index.css";
-
-const serverUrl = 'http://localhost:3000';
-
 import MainApi from "../../script/mainapi.js";
 import NewsApi from "../../script/newsapi.js"
 import Popup from "../../script/popup.js";
 import Header from "../../script/header.js";
 import NewsCardList from "../../script/newscardlist.js";
+
+const serverUrl = 'http://localhost:3000';
 
 const mainApi = new MainApi({baseUrl: serverUrl});
 const newsApi = new NewsApi();
@@ -23,33 +22,6 @@ const signInPasswordError = signInForm.querySelector("#wrongPasswordError");
 const signInButton = signInForm.querySelector("#signIn");
 const signInToSignUpButton = document.querySelector("#gotoSignUp");
 
-signInEmail.addEventListener('input', validate);  
-signInPassword.addEventListener('input', validate); 
-
-signInToSignUpButton.addEventListener('click', function() {
-    popups.signIn.classList.remove('popup_opened');
-    popups.signUpOpen();
-})
-
-signInForm.addEventListener('submit', function() {
-    event.preventDefault();
-    signInPasswordError.textContent = "";
-    signInButton.textContent = 'Загрузка...';
-    mainApi.signIn(signInEmail.value, signInPassword.value)
-        .then(res => {
-            if(res.message) {
-                console.log(res.message)
-                signInPasswordError.textContent = res.message;
-                signInButton.textContent = 'Войти';
-            } else {
-                popups.signIn.classList.remove('popup_opened');
-                signInButton.textContent = 'Войти';
-                signInForm.reset();
-                renderMenu();
-            }
-        })
-});
-
 const signUpForm = document.forms.signup;
 const signUpEmail = signUpForm.elements.email;
 const signUpPassword = signUpForm.elements.password;
@@ -58,40 +30,7 @@ const signUpExistError = signUpForm.querySelector("#existError");
 const signUpButton = signUpForm.querySelector("#signUp");
 const signUpToSignInButton = document.querySelector("#gotoSignIn");
 
-signUpEmail.addEventListener('input', validate);  
-signUpPassword.addEventListener('input', validate); 
-signUpName.addEventListener('input', validate); 
-
-signUpToSignInButton.addEventListener('click', function() {
-    popups.signUp.classList.remove('popup_opened');
-    popups.signInOpen();
-});
-
-signUpForm.addEventListener('submit', function() {
-    event.preventDefault();
-    signUpExistError.textContent = "";
-    signUpButton.textContent = 'Загрузка...';
-    mainApi.signUp(signUpName.value, signUpPassword.value, signUpEmail.value)
-        .then(res => {
-            if(res.message) {
-                console.log(res.message)
-                signUpExistError.textContent = res.message;
-                signUpButton.textContent = 'Зарегистрироваться';
-            } else {
-                popups.signUp.classList.remove('popup_opened');
-                popups.registeredOpen();
-                signUpButton.textContent = 'Зарегистрироваться';
-                signUpForm.reset();
-            }
-        })
-
-});
-
 const registeredToSignInButton = document.querySelector("#registeredGotoSignIn");
-registeredToSignInButton.addEventListener('click', function() {
-    popups.registered.classList.remove('popup_opened');
-    popups.signInOpen();
-});
 
 const searchForm = document.forms.search;
 const searchInput = searchForm.elements.searchWord;
@@ -101,47 +40,7 @@ const resultNothing = resultContainer.querySelector(".result__nothing")
 const resultExist = resultContainer.querySelector(".result__exist")
 const reslutLoading = resultContainer.querySelector(".result__loading")
 
-searchInput.addEventListener('input', function() {
-    if (!event.target.checkValidity()) {
-        searchButton.setAttribute('disabled', true);
-    } else {
-        searchButton.removeAttribute('disabled');
-    }
-})
-
-searchForm.addEventListener('submit', function() {
-    event.preventDefault();
-    resultContainer.classList.add("result_opened");
-    resultNothing.classList.remove("result__nothing_opened");
-    resultExist.classList.remove("result__exist_opened");
-    reslutLoading.classList.add("result__loading_opened");
-    newsApi.getNews(searchInput.value)
-        .then(res => {
-            if (res.articles.length) {
-                mainApi.getUser()
-                    .then(res1 => {
-                        newsCardList.renderFromSearch(res.articles, searchInput.value, res1.message);
-                        reslutLoading.classList.remove("result__loading_opened");
-                        resultExist.classList.add("result__exist_opened");
-                    })
-            } else {
-                newsCardList.clearCardList()
-                reslutLoading.classList.remove("result__loading_opened");
-                resultNothing.classList.add("result__nothing_opened");
-
-            }
-        });
-});
-
 const showMoreButton = resultExist.querySelector("#showMore");
-showMoreButton.addEventListener('click', function() {
-    mainApi.getUser()
-    .then(res => {
-        newsCardList.renderSomeCards(res.message);
-    })
-});
-
-
 
 
 function validate(target) {
@@ -149,14 +48,7 @@ function validate(target) {
     if(!target.target.checkValidity()) {
         target.target.nextElementSibling.classList.remove("popup__error-message_hidden");
     }
-}
-
-document.addEventListener('click', function() {     
-    if (event.target.classList.contains('popup__close')) {
-        popups.close(event);
-    }
-}); 
-
+};
 function renderMenu() {
     mainApi.getUser()
         .then(res => {
@@ -184,4 +76,112 @@ function renderMenu() {
                 searchForm.reset();
             }); 
         });
-}
+};
+function bindHandlers() {
+    signInEmail.addEventListener('input', validate);  
+    signInPassword.addEventListener('input', validate); 
+    
+    signInToSignUpButton.addEventListener('click', function() {
+        popups.signIn.classList.remove('popup_opened');
+        popups.signUpOpen();
+    });
+    signInForm.addEventListener('submit', function() {
+        event.preventDefault();
+        signInPasswordError.textContent = "";
+        signInButton.textContent = 'Загрузка...';
+        mainApi.signIn(signInEmail.value, signInPassword.value)
+            .then(res => {
+                if(res.message) {
+                    console.log(res.message)
+                    signInPasswordError.textContent = res.message;
+                    signInButton.textContent = 'Войти';
+                } else {
+                    popups.signIn.classList.remove('popup_opened');
+                    signInButton.textContent = 'Войти';
+                    signInForm.reset();
+                    renderMenu();
+                }
+            })
+    });
+    
+    signUpEmail.addEventListener('input', validate);  
+    signUpPassword.addEventListener('input', validate); 
+    signUpName.addEventListener('input', validate); 
+    
+    signUpToSignInButton.addEventListener('click', function() {
+        popups.signUp.classList.remove('popup_opened');
+        popups.signInOpen();
+    });
+    
+    signUpForm.addEventListener('submit', function() {
+        event.preventDefault();
+        signUpExistError.textContent = "";
+        signUpButton.textContent = 'Загрузка...';
+        mainApi.signUp(signUpName.value, signUpPassword.value, signUpEmail.value)
+            .then(res => {
+                if(res.message) {
+                    console.log(res.message)
+                    signUpExistError.textContent = res.message;
+                    signUpButton.textContent = 'Зарегистрироваться';
+                } else {
+                    popups.signUp.classList.remove('popup_opened');
+                    popups.registeredOpen();
+                    signUpButton.textContent = 'Зарегистрироваться';
+                    signUpForm.reset();
+                }
+            })
+    });
+    
+    registeredToSignInButton.addEventListener('click', function() {
+        popups.registered.classList.remove('popup_opened');
+        popups.signInOpen();
+    });
+    
+    searchInput.addEventListener('input', function() {
+        if (!event.target.checkValidity()) {
+            searchButton.setAttribute('disabled', true);
+        } else {
+            searchButton.removeAttribute('disabled');
+        }
+    });
+    
+    searchForm.addEventListener('submit', function() {
+        event.preventDefault();
+        resultContainer.classList.add("result_opened");
+        resultNothing.classList.remove("result__nothing_opened");
+        resultExist.classList.remove("result__exist_opened");
+        reslutLoading.classList.add("result__loading_opened");
+        newsApi.getNews(searchInput.value)
+            .then(res => {
+                if (res.articles.length) {
+                    mainApi.getUser()
+                        .then(res1 => {
+                            newsCardList.renderFromSearch(res.articles, searchInput.value, res1.message);
+                            reslutLoading.classList.remove("result__loading_opened");
+                            resultExist.classList.add("result__exist_opened");
+                        })
+                } else {
+                    newsCardList.clearCardList()
+                    reslutLoading.classList.remove("result__loading_opened");
+                    resultNothing.classList.add("result__nothing_opened");
+    
+                }
+            });
+    });
+    
+    showMoreButton.addEventListener('click', function() {
+        mainApi.getUser()
+        .then(res => {
+            newsCardList.renderSomeCards(res.message);
+        })
+    });
+    
+    document.addEventListener('click', function() {     
+        if (event.target.classList.contains('popup__close')) {
+            popups.close(event);
+        }
+    }); 
+};
+bindHandlers();
+
+
