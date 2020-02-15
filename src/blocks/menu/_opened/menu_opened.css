@@ -1,3 +1,5 @@
-.menu.menu_opened {
-    background: #1a1b22;
+@media screen and (max-width: 700px) {
+    .menu.menu_opened {
+        background: #1a1b22;
+    }
 }

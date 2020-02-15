@@ -46,8 +46,11 @@ function renderMenu() {
             header.render(true, res.name);
             const unauthButton = document.querySelector("#unauthorize");
             unauthButton.addEventListener('click', function() {
-                mainApi.logout();
-                window.location.href = "index.html";
+                mainApi.logout()
+                    .then(res => {
+                        window.location.href = "index.html";
+                    })
+                    .catch(err => console.log(err));
             }); 
         })
         .catch(err => {

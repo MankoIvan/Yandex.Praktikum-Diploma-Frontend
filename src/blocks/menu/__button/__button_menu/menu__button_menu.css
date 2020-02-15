@@ -1,3 +1,5 @@
-.menu__button.menu__button_menu {
-    margin: 12px auto;
+@media screen and (max-width: 700px) {
+    .menu__button.menu__button_menu {
+        margin: 12px auto;
+    }
 }
