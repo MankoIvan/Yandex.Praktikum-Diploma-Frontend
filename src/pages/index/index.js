@@ -73,6 +73,9 @@ function renderMenu() {
             authButton.addEventListener('click', function() {
                 header.toggleMenu(header.menu, false);
                 popups.signInOpen(event);
+                resultContainer.classList.remove("result_opened");
+                newsCardList.clearCardList();
+                searchForm.reset();
             });
         })
 };
@@ -154,12 +157,12 @@ function bindHandlers() {
                 if (res.articles.length) {
                     mainApi.getUser()
                         .then(res1 => {
-                            newsCardList.renderFromSearch(res.articles, searchInput.value, false);
+                            newsCardList.renderFromSearch(res.articles, searchInput.value, true);
                             reslutLoading.classList.remove("result__loading_opened");
                             resultExist.classList.add("result__exist_opened");
                         })
                         .catch(err => {
-                            newsCardList.renderFromSearch(res.articles, searchInput.value, true);
+                            newsCardList.renderFromSearch(res.articles, searchInput.value, false);
                             reslutLoading.classList.remove("result__loading_opened");
                             resultExist.classList.add("result__exist_opened");
                         })
@@ -175,10 +178,10 @@ function bindHandlers() {
     showMoreButton.addEventListener('click', function() {
         mainApi.getUser()
             .then(res => {
-                newsCardList.renderSomeCards(false);
+                newsCardList.renderSomeCards(true);
             })
             .catch(res => {
-                newsCardList.renderSomeCards(true);
+                newsCardList.renderSomeCards(false);
             })
     });
     

@@ -53,7 +53,7 @@ export default class NewsCard {
         }
 
         if (destroy) {
-            const cardDestroy = document.createElement('div');
+            const cardDestroy = document.createElement('button');
             cardDestroy.classList.add('card__delete');
 
             const cardDestroyImage = document.createElement('span');
@@ -74,18 +74,21 @@ export default class NewsCard {
             card.appendChild(cardDestroyTip); */
         }
         if (bookmark) {
-            const cardBookmark = document.createElement('div');
+            const cardBookmark = document.createElement('button');
             cardBookmark.classList.add('card__bookmark');
-            cardBookmark.setAttribute('disabled', !isLoggedIn);
+            if (!isLoggedIn) {
+                cardBookmark.setAttribute('disabled', !isLoggedIn);
+            }
 
             const cardBookmarkImage = document.createElement('span');
             cardBookmarkImage.classList.add('card__bookmark-image');
             cardBookmark.appendChild(cardBookmarkImage);
+            console.log(cardBookmark)
             cardBookmark.addEventListener('click', this.book.bind(this));
 
             card.appendChild(cardBookmark);
 
-            if (isLoggedIn) {
+            if (!isLoggedIn) {
                 const cardBookmarkTip = document.createElement('div');
                 cardBookmarkTip.classList.add('card__delete-tip');
     

@@ -1,4 +1,5 @@
-const MAIN_API_URL = 'http://api.newsexplorer-manko.site';
+/* const MAIN_API_URL = 'http://api.newsexplorer-manko.site'; */
+const MAIN_API_URL = 'http://localhost:3000';
 
 const NEWS_API_PARAMETERS = {
     key: "fa01878ef86944b3b9eae4c12b3f9447",

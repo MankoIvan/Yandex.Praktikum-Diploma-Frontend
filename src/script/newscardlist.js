@@ -35,7 +35,6 @@ export default class CardList {
     }
     addCard(id, text, image, date, title, description, source, link, keyword, isLoggedIn, bookmark, del, key) {
         const card = new NewsCard(id, text, image, date, title, description, source, link, keyword);
-        console.log(card);
         card.setMainApi(this.mainApi);
         card.cardElement = card.create(isLoggedIn, bookmark, del, keyword)
         this.container.appendChild(card.cardElement);
