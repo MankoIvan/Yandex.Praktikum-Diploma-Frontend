@@ -154,7 +154,12 @@ function bindHandlers() {
                 if (res.articles.length) {
                     mainApi.getUser()
                         .then(res1 => {
-                            newsCardList.renderFromSearch(res.articles, searchInput.value, res1.message);
+                            newsCardList.renderFromSearch(res.articles, searchInput.value, true);
+                            reslutLoading.classList.remove("result__loading_opened");
+                            resultExist.classList.add("result__exist_opened");
+                        })
+                        .catch(err => {
+                            newsCardList.renderFromSearch(res.articles, searchInput.value, false);
                             reslutLoading.classList.remove("result__loading_opened");
                             resultExist.classList.add("result__exist_opened");
                         })
@@ -169,9 +174,12 @@ function bindHandlers() {
     
     showMoreButton.addEventListener('click', function() {
         mainApi.getUser()
-        .then(res => {
-            newsCardList.renderSomeCards(res.message);
-        })
+            .then(res => {
+                newsCardList.renderSomeCards(true);
+            })
+            .catch(res => {
+                newsCardList.renderSomeCards(false);
+            })
     });
     
     document.addEventListener('click', function() {     
