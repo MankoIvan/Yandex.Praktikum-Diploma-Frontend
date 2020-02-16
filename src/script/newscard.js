@@ -28,7 +28,7 @@ export default class NewsCard {
         
         const cardDescription = document.createElement('h4');
         cardDescription.classList.add('card__description');
-        cardDescription.textContent = this.text; 
+        cardDescription.textContent = this.description; 
         
         const cardSource = document.createElement('p');
         cardSource.classList.add('card__source');
