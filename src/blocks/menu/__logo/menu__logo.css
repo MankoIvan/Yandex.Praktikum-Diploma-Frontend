@@ -12,6 +12,7 @@
     text-decoration: none;
     margin: auto 0 auto 104px;
     padding-top: 2px;
+    z-index: 2;
 }
 
 @media screen and (max-width: 1440px) {

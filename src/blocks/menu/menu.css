@@ -6,6 +6,9 @@
 @import url("./__button-text/menu__button-text.css");
 @import url("./__button-image/menu__button-image.css");
 @import url("./__open/menu__open.css");
+@import url("./__open-image/menu__open-image.css");
+@import url("./_opened/menu_opened.css");
+@import url("./__darkener/menu__darkener.css");
 
 @import url("./_theme/menu_theme.css");
 

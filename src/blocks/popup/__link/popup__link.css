@@ -1,6 +1,5 @@
 .popup__link {
     display: inline;
-    display: inline;
     margin-block-start: 0;
     margin-block-end: 0;
     font-family: Inter;
@@ -10,4 +9,8 @@
     font-style: normal;
     font-weight: normal;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
+    padding: unset;
+    background-color: unset;
 }

@@ -10,7 +10,7 @@
   @media screen and (max-width: 700px) {
     .popup__container {
       width: 100vw;
-      height: calc(100vh - 56px);
+      height: calc(100vh - 156px);
       border-radius: unset;
       border-top-right-radius: 16px;
       border-top-left-radius: 16px;
