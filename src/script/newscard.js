@@ -104,7 +104,7 @@ export default class NewsCard {
 
     }
     book() {     
-        this.mainApi.createArticle(this.keyword, this.title, this.text, this.date, this.source, this.link, this.image)
+        this.mainApi.createArticle(this.keyword, this.title, this.description, this.date, this.source, this.link, this.image)
             .then(() => {
                 this.cardElement.querySelector(".card__bookmark-image").classList.add("card__bookmark-image_marked");
             })

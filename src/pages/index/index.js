@@ -169,10 +169,21 @@ function bindHandlers() {
                 } else {
                     newsCardList.clearCardList()
                     reslutLoading.classList.remove("result__loading_opened");
+                    resultNothing.querySelector(".result__nothing-title").innerText = "Ничего не найдено"
+                    resultNothing.querySelector(".result__nothing-subtitle").innerText = "К сожалению по вашему запросу ничего не найдено"               
                     resultNothing.classList.add("result__nothing_opened");
     
                 }
-            });
+            })
+            .catch(err => {
+                newsCardList.clearCardList()
+                reslutLoading.classList.remove("result__loading_opened");
+                resultNothing.querySelector(".result__nothing-title").innerText = "Что-то пошло не так"
+                resultNothing.querySelector(".result__nothing-subtitle").innerText = ""                
+                
+                resultNothing.classList.add("result__nothing_opened");
+                console.log(err);
+            })
     });
     
     showMoreButton.addEventListener('click', function() {
