@@ -15,7 +15,7 @@ export default class MainApi {
                 email: email,
             })
         })
-        .then(res => this.checkStatus(res)) 
+        .then(res => this._checkStatus(res)) 
     }
     signIn(email, password) {
         return fetch(`${this.url}/signin`, {
@@ -29,7 +29,7 @@ export default class MainApi {
                 email: email,
             })
         })
-        .then(res => this.checkStatus(res)) 
+        .then(res => this._checkStatus(res)) 
     }
     logout() {
         return fetch(`${this.url}/logout`, {
@@ -52,14 +52,14 @@ export default class MainApi {
             credentials: 'include',
             method: 'GET',
         })
-        .then(res => this.checkStatus(res)) 
+        .then(res => this._checkStatus(res)) 
     }
     getArticles() {
         return fetch(`${this.url}/articles`, {
             method: 'GET',
             credentials: 'include',
         })
-        .then(res => this.checkStatus(res)) 
+        .then(res => this._checkStatus(res)) 
     }
     createArticle(keyword, title, text, date, source, link, image) {
         return fetch(`${this.url}/articles`, {
@@ -79,7 +79,7 @@ export default class MainApi {
             image: image,
             })
         })
-        .then(res => this.checkStatus(res)) 
+        .then(res => this._checkStatus(res)) 
     }
     deleteArticle(articleId) {
         return fetch(`${this.url}/articles/${articleId}`, {
@@ -89,9 +89,9 @@ export default class MainApi {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => this.checkStatus(res)) 
+        .then(res => this._checkStatus(res)) 
     }
-    checkStatus(res) {
+    _checkStatus(res) {
         if (!res.ok) {
             return Promise.reject(`Ошибка: ${res.status}`); 
         }

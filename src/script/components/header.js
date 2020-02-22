@@ -10,25 +10,25 @@ export default class Header {
             this.menu.classList.add("menu_theme");
         }
 
-        this.menu.appendChild(this.renderDarkener());
-        this.menu.appendChild(this.renderLogo());
+        this.menu.appendChild(this._renderDarkener());
+        this.menu.appendChild(this._renderLogo());
 
         const menuItems = document.createElement("div");
         menuItems.classList.add("menu__items");
-        menuItems.appendChild(this.renderIndex());
+        menuItems.appendChild(this._renderIndex());
         if (isLoggedIn) {
-            menuItems.appendChild(this.renderSaved());
+            menuItems.appendChild(this._renderSaved());
         }
         if(isLoggedIn) {
-            menuItems.appendChild(this.renderExitButton(name));
+            menuItems.appendChild(this._renderExitButton(name));
         } else {
-            menuItems.appendChild(this.renderAuthButton());
+            menuItems.appendChild(this._renderAuthButton());
         }
         this.menu.appendChild(menuItems);
-        this.menu.appendChild(this.renderMenuOpenButton());
+        this.menu.appendChild(this._renderMenuOpenButton());
     }
     
-    renderDarkener() {
+    _renderDarkener() {
         const darkener = document.createElement("div");
         darkener.classList.add("menu__darkener");
         return darkener;
@@ -48,7 +48,7 @@ export default class Header {
             menu.querySelector(".menu__button-image").classList.toggle("menu__button-image_theme");
         }
     }
-    renderMenuOpenButton() {
+    _renderMenuOpenButton() {
         const menuOpen = document.createElement("button");
         menuOpen.classList.add("menu__open");
         const menuOpenImage = document.createElement("div");
@@ -69,7 +69,7 @@ export default class Header {
 
         return menuOpen;
     }
-    renderLogo() {
+    _renderLogo() {
         const menuLogo = document.createElement("a");
         menuLogo.setAttribute('href', "http://newsexplorer-manko.site");
         menuLogo.classList.add("menu__logo");
@@ -79,7 +79,7 @@ export default class Header {
         menuLogo.innerText = "NewsExplorer";
         return menuLogo;
     }
-    renderIndex() {
+    _renderIndex() {
         const menuItemMain = document.createElement("div");
         menuItemMain.classList.add("menu__item");
         const menuItemMainText = document.createElement("a");
@@ -99,7 +99,7 @@ export default class Header {
         return menuItemMain;
 
     }
-    renderSaved() {
+    _renderSaved() {
         const menuItemSaved = document.createElement("div");
         menuItemSaved.classList.add("menu__item");
         const menuItemSavedText = document.createElement("a");
@@ -123,7 +123,7 @@ export default class Header {
         menuItemSaved.appendChild(menuItemSavedText);
         return menuItemSaved;
     }
-    renderAuthButton() {
+    _renderAuthButton() {
         const button = document.createElement("button");
         button.classList.add("menu__button");
         if (this.theme) {
@@ -139,7 +139,7 @@ export default class Header {
         button.appendChild(buttonText);
         return button;
     }
-    renderExitButton(name) {
+    _renderExitButton(name) {
         const button = document.createElement("button");
         button.classList.add("menu__button");
         if (this.theme) {

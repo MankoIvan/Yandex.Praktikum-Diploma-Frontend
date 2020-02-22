@@ -59,7 +59,7 @@ export default class NewsCard {
             const cardDestroyImage = document.createElement('span');
             cardDestroyImage.classList.add('card__delete-image');
             cardDestroy.appendChild(cardDestroyImage);
-            cardDestroy.addEventListener('click', this.delete.bind(this));
+            cardDestroy.addEventListener('click', this._delete.bind(this));
 
             card.appendChild(cardDestroy);
 
@@ -84,7 +84,7 @@ export default class NewsCard {
             cardBookmarkImage.classList.add('card__bookmark-image');
             cardBookmark.appendChild(cardBookmarkImage);
             console.log(cardBookmark)
-            cardBookmark.addEventListener('click', this.book.bind(this));
+            cardBookmark.addEventListener('click', this._book.bind(this));
 
             card.appendChild(cardBookmark);
 
@@ -103,16 +103,17 @@ export default class NewsCard {
         return card;
 
     }
-    book() {     
+    _book() {     
         this.mainApi.createArticle(this.keyword, this.title, this.description, this.date, this.source, this.link, this.image)
             .then(() => {
                 this.cardElement.querySelector(".card__bookmark-image").classList.add("card__bookmark-image_marked");
             })
             .catch(res => console.log(res.message));
     }
-    delete() {
+    _delete() {
         this.mainApi.deleteArticle(this._id)
         .then(() => {
+            this.cardElement.querySelector(".card__delete").removeEventListener('click', this._delete.bind(this));
             this.cardElement.remove();
         })
         .catch(res => console.log(res.message));
