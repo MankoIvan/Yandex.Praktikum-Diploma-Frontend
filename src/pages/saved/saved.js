@@ -1,10 +1,10 @@
 import "./saved.css";
-import MainApi from "../../script/mainapi.js";
-import Popup from "../../script/popup.js";
-import Header from "../../script/header.js";
-import NewsCardList from "../../script/newscardlist.js";
+import MainApi from "../../script/api/mainapi.js";
+import Popup from "../../script/components/popup.js";
+import Header from "../../script/components/header.js";
+import NewsCardList from "../../script/components/newscardlist.js";
 
-import * as consts from "../../script/consts.js";
+import * as consts from "../../script/consts/consts.js";
 
 const mainApi = new MainApi(consts.MAIN_API_URL);
 unAuthRedirect();

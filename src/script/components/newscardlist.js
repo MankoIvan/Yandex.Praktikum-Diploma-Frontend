@@ -24,16 +24,16 @@ export default class CardList {
                 }
             }
             const card = this.cards[i];
-            this.addCard("", card.content, card.urlToImage, card.publishedAt, card.title, card.description, card.source.name, card.url, this.keyword, isLoggedIn, true, false, false);
+            this._addCard("", card.content, card.urlToImage, card.publishedAt, card.title, card.description, card.source.name, card.url, this.keyword, isLoggedIn, true, false, false);
         }
         this.count = this.count + 3;
     }
     renderSaved(cards) {
         for (let card of cards) {
-            this.addCard(card._id, "", card.image, card.date, card.title, card.text, card.source, card.link, card.keyword, true, false, true, true)
+            this._addCard(card._id, "", card.image, card.date, card.title, card.text, card.source, card.link, card.keyword, true, false, true, true)
         }
     }
-    addCard(id, text, image, date, title, description, source, link, keyword, isLoggedIn, bookmark, del, key) {
+    _addCard(id, text, image, date, title, description, source, link, keyword, isLoggedIn, bookmark, del, key) {
         const card = new NewsCard(id, text, image, date, title, description, source, link, keyword);
         card.setMainApi(this.mainApi);
         card.cardElement = card.create(isLoggedIn, bookmark, del, keyword)
